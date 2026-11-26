@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin Sign In | Dadris Graphix</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="login-wrapper">
+    <section class="login-card">
+
+      <div class="brand">
+        <h1>DADRIS GRAPHIX</h1>
+        <p>PRINTING &amp; SIGNS</p>
+      </div>
+
+      <div class="login-heading">
+        <h2>Admin Sign In</h2>
+        <p>Welcome back. Sign in to manage your website.</p>
+      </div>
+
+      <form id="loginForm">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          autocomplete="username"
+          required
+        >
+
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+          >
+          <button type="button" id="showPassword">Show</button>
+        </div>
+
+        <button type="submit" id="loginButton" class="login-button">
+          Sign In
+        </button>
+
+        <p id="loginMessage" class="message" role="alert"></p>
+      </form>
+
+      <div class="forgot-password">
+        <a href="#" id="forgotPassword">Forgot password?</a>
+      </div>
+
+      <footer>
+        &copy; <span id="year"></span> Dadris Graphix. All rights reserved.
+      </footer>
+
+    </section>
+  </main>
+
+  <script type="module" src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,1405 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dadris Graphix | Printing, Design, Branding & Advertising</title>
+<meta name="description" content="Dadris Graphix Printing & Signs offers professional graphic design, printing, vehicle branding, billboard and street-pole advertising in Matungu, Kakamega, Kenya.">
+<meta name="keywords" content="Dadris Graphix, graphic design Kenya, printing Kakamega, billboard advertising Matungu, street pole advertising, vehicle branding">
+<meta name="author" content="Dadris Graphix Printing & Signs">
+<meta name="theme-color" content="#087443">
+
+<style>
+:root {
+  --green: #087443;
+  --dark-green: #06472d;
+  --red: #e63936;
+  --orange: #ff8c24;
+  --dark: #17221b;
+  --grey: #68736b;
+  --light: #f5f7f4;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--dark);
+  background: var(--white);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: min(1160px, 90%);
+  margin: auto;
+}
+
+/* HEADER */
+
+header {
+  height: 85px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.98);
+  border-bottom: 1px solid #edf0ed;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.brand img {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.brand-name span { color: var(--green); }
+
+.brand-name small {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #e63936;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  list-style: none;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.nav-links a:hover { color: var(--green); }
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 23px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: .3s;
+  cursor: pointer;
+}
+
+.btn-green {
+  background: var(--green);
+  color: white;
+}
+
+.btn-green:hover {
+  background: var(--dark-green);
+  transform: translateY(-3px);
+}
+
+.btn-orange {
+  background: var(--orange);
+  color: white;
+}
+
+.btn-orange:hover {
+  background: #e87910;
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  border: 1px solid rgba(255,255,255,.8);
+  color: white;
+}
+
+.btn-outline:hover {
+  background: white;
+  color: var(--dark);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  background: var(--dark-green);
+  color: white;
+  min-height: 610px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 75px solid rgba(255,255,255,.035);
+  border-radius: 50%;
+  right: -180px;
+  top: -180px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 45px;
+  align-items: center;
+  padding: 75px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 800;
+  color: var(--orange);
+  margin-bottom: 19px;
+}
+
+.hero h1 {
+  font-size: clamp(43px, 5.5vw, 72px);
+  line-height: 1.04;
+  letter-spacing: -3px;
+  margin-bottom: 24px;
+}
+
+.hero h1 span { color: #ff9b38; }
+
+.hero-text > p {
+  max-width: 540px;
+  color: #dce9e0;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+
+.hero-image {
+  position: relative;
+  background: white;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 25px 60px rgba(0,0,0,.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  max-height: 430px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.hero-note {
+  position: absolute;
+  bottom: -22px;
+  left: -20px;
+  background: var(--orange);
+  color: white;
+  padding: 13px 20px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow: 0 8px 20px #0003;
+}
+
+/* INTRO STRIP */
+
+.intro-strip {
+  background: var(--orange);
+  color: white;
+  padding: 19px 0;
+}
+
+.intro-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.intro-inner strong {
+  font-size: 15px;
+  letter-spacing: .5px;
+}
+
+.intro-inner span {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* SECTIONS */
+
+section { padding: 85px 0; }
+
+.section-heading {
+  max-width: 660px;
+  margin-bottom: 43px;
+}
+
+.section-heading.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-heading .eyebrow { color: var(--green); }
+
+.section-heading h2 {
+  font-size: clamp(31px, 4vw, 45px);
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin-bottom: 15px;
+}
+
+.section-heading p {
+  color: var(--grey);
+  font-size: 15px;
+}
+
+/* SERVICES */
+
+.services { background: var(--light); }
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.service-card {
+  background: white;
+  padding: 30px;
+  border: 1px solid #e9eee9;
+  border-radius: 8px;
+  transition: .3s;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--green);
+  box-shadow: 0 14px 35px rgba(0,0,0,.06);
+}
+
+.service-number {
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 18px;
+}
+
+.service-card h3 {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  color: var(--grey);
+  font-size: 14px;
+}
+
+/* ABOUT AND TEAM */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.about-image {
+  position: relative;
+  background: #f0f2ef;
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 320px;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.about-tag {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  background: var(--green);
+  color: white;
+  padding: 14px 20px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.about-text h2 {
+  font-size: 42px;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  color: var(--grey);
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+
+/* PORTFOLIO */
+
+.portfolio { background: var(--light); }
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #eceeeb;
+  height: 310px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 5px;
+  transition: .4s;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.025);
+}
+
+.portfolio-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 20px 17px;
+  background: linear-gradient(transparent, rgba(0,0,0,.88));
+  color: white;
+  pointer-events: none;
+}
+
+.portfolio-label h3 { font-size: 17px; }
+
+.portfolio-label p {
+  font-size: 12px;
+  color: #e5e5e5;
+}
+
+/* OUTDOOR ADVERTISING */
+
+.outdoor { background: white; }
+
+.outdoor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.outdoor-card {
+  overflow: hidden;
+  border-radius: 9px;
+  background: var(--light);
+  border: 1px solid #e9eee9;
+}
+
+.outdoor-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
+  background: #e9ece9;
+  transition: .4s;
+}
+
+.outdoor-card:hover img {
+  transform: scale(1.015);
+}
+
+.outdoor-content { padding: 25px; }
+
+.outdoor-content h3 {
+  font-size: 23px;
+  margin-bottom: 9px;
+}
+
+.outdoor-content p {
+  color: var(--grey);
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+/* CTA */
+
+.cta {
+  background: var(--green);
+  color: white;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: clamp(31px, 4vw, 46px);
+  margin-bottom: 15px;
+}
+
+.cta p {
+  color: #e0eee4;
+  margin-bottom: 26px;
+}
+
+/* FOOTER */
+
+footer {
+  background: #111a15;
+  color: white;
+  padding: 55px 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand img {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+  background: white;
+  border-radius: 50%;
+  padding: 3px;
+  margin-bottom: 14px;
+}
+
+footer p, footer a {
+  color: #bdc9c1;
+  font-size: 14px;
+}
+
+footer h3 { margin-bottom: 15px; }
+
+footer ul { list-style: none; }
+
+footer li { margin-bottom: 10px; }
+
+footer a:hover { color: white; }
+
+.copyright {
+  border-top: 1px solid #344038;
+  padding-top: 20px;
+  text-align: center;
+  color: #aab5ad;
+  font-size: 13px;
+}
+
+/* WHATSAPP */
+
+.whatsapp {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 59px;
+  height: 59px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #25d366;
+  color: white;
+  font-size: 27px;
+  font-weight: bold;
+  z-index: 200;
+  box-shadow: 0 5px 20px #0003;
+  animation: breathe 2.2s infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { box-shadow: 0 5px 20px #25d36655; }
+  50% { box-shadow: 0 5px 30px 9px #25d36640; }
+}
+
+/* TABLET */
+
+@media(max-width: 900px) {
+  .menu-toggle { display: block; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 85px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 25px 5%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    box-shadow: 0 10px 20px #0001;
+  }
+
+  .nav-links.active { display: flex; }
+
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+
+  .service-grid,
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-grid { gap: 30px; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* MOBILE */
+
+@media(max-width: 600px) {
+  section { padding: 65px 0; }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    padding: 60px 0 75px;
+  }
+
+  .hero h1 { letter-spacing: -2px; }
+
+  .hero-image {
+    min-height: 180px;
+    margin: 0 5px;
+  }
+
+  .hero-image img {
+    max-height: 350px;
+  }
+
+  .hero-note {
+    left: 5px;
+    bottom: -18px;
+  }
+
+  .service-grid,
+  .portfolio-grid,
+  .about-grid,
+  .outdoor-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    min-height: 200px;
+  }
+
+  .about-image img {
+    max-height: 450px;
+  }
+
+  .about-text h2 { font-size: 34px; }
+
+  .portfolio-item {
+    height: auto;
+    min-height: 230px;
+    max-height: 380px;
+  }
+
+  .portfolio-item img {
+    height: auto;
+    max-height: 380px;
+    min-height: 230px;
+  }
+
+  .outdoor-card img {
+    height: auto;
+    max-height: 400px;
+    min-height: 220px;
+  }
+
+  .intro-inner {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .brand img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .brand-name { font-size: 18px; }
+}
+
+
+/* =========================================================
+   RESPONSIVE REFINEMENT — DADRIS GRAPHIX
+   Desktop: 4 columns | Tablet: 2 columns | Mobile: 2 columns
+   ========================================================= */
+
+/* Header and accessible mobile navigation */
+header {
+  min-height: 85px;
+  height: auto;
+}
+
+header .container.nav {
+  min-height: 85px;
+  position: relative;
+  gap: 18px;
+}
+
+.menu-toggle {
+  width: 46px;
+  height: 42px;
+  padding: 8px;
+  color: var(--dark);
+  border: 1px solid #e4eae5;
+  border-radius: 6px;
+  line-height: 1;
+  font-size: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-toggle::before {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  box-shadow: 0 -7px currentColor, 0 7px currentColor;
+}
+
+.menu-toggle:focus-visible,
+.nav-links a:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+}
+
+.nav-links {
+  z-index: 300;
+}
+
+/* Four balanced columns on wide screens */
+@media (min-width: 901px) {
+  .service-grid,
+  .portfolio-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .service-card {
+    padding: 25px 22px;
+    min-width: 0;
+  }
+
+  .portfolio-item {
+    height: 285px;
+  }
+}
+
+/* Two columns on tablets */
+@media (min-width: 601px) and (max-width: 900px) {
+  .nav-links {
+    top: 85px;
+    max-height: calc(100vh - 85px);
+    overflow-y: auto;
+  }
+
+  .service-grid,
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .outdoor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Two cards side by side on mobile — no single-column card stacks */
+@media (max-width: 600px) {
+  header .container.nav {
+    width: 92%;
+    min-height: 76px;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    flex: 0 0 46px;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 76px;
+    left: -4.35%;
+    width: 108.7%;
+    max-height: calc(100vh - 76px);
+    overflow-y: auto;
+    padding: 18px 5% 24px;
+    background: #fff;
+    border-top: 1px solid #edf0ed;
+    box-shadow: 0 14px 24px rgba(0,0,0,.12);
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links li a:not(.btn) {
+    display: block;
+    padding: 12px 4px;
+    border-bottom: 1px solid #f0f2f0;
+  }
+
+  .nav-links .btn {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .brand { gap: 8px; min-width: 0; }
+  .brand img { width: 48px; height: 48px; flex: 0 0 48px; }
+  .brand-name { font-size: 17px; letter-spacing: -.6px; }
+  .brand-name small { font-size: 8px; letter-spacing: 1.7px; }
+
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 9vw, 48px);
+    letter-spacing: -1.8px;
+  }
+
+  .hero-text > p { font-size: 15px; }
+  .hero-buttons { gap: 10px; }
+  .hero-buttons .btn { padding: 12px 15px; font-size: 12px; }
+
+  .service-grid,
+  .portfolio-grid,
+  .outdoor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .service-card {
+    min-width: 0;
+    padding: 19px 15px;
+    border-radius: 7px;
+  }
+
+  .service-number {
+    font-size: 10px;
+    margin-bottom: 12px;
+  }
+
+  .service-card h3 {
+    font-size: 15px;
+    line-height: 1.25;
+  }
+
+  .service-card p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .portfolio-item {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 5;
+    border-radius: 7px;
+  }
+
+  .portfolio-item img {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    max-height: none;
+    object-fit: contain;
+    padding: 4px;
+  }
+
+  .portfolio-label {
+    padding: 30px 10px 10px;
+  }
+
+  .portfolio-label h3 { font-size: 12px; line-height: 1.25; }
+  .portfolio-label p { font-size: 10px; line-height: 1.3; }
+
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .about-image {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    object-fit: contain;
+  }
+
+  .outdoor-card { min-width: 0; }
+  .outdoor-card img {
+    width: 100%;
+    height: 150px;
+    min-height: 0;
+    max-height: none;
+    object-fit: contain;
+  }
+
+  .outdoor-content { padding: 14px 12px; }
+  .outdoor-content h3 { font-size: 15px; line-height: 1.3; }
+  .outdoor-content p { font-size: 11px; line-height: 1.45; }
+  .outdoor-content .btn {
+    width: 100%;
+    padding: 10px 8px;
+    font-size: 10px;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 18px;
+  }
+
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-brand p { max-width: 100%; }
+
+  .intro-inner { text-align: center; justify-content: center; }
+  .intro-inner strong { font-size: 13px; }
+  .intro-inner span { font-size: 11px; }
+
+  .whatsapp {
+    width: 54px;
+    height: 54px;
+    right: 15px;
+    bottom: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .whatsapp { animation: none; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container nav">
+
+    <a href="#home" class="brand">
+      <img src="images/logo.png" alt="Dadris Graphix logo">
+      <div class="brand-name">
+        DADRIS <span>GRAPHIX.</span>
+        <small>PRINTING & SIGNS</small>
+      </div>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-controls="navLinks" aria-expanded="false"></button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Our Work</a></li>
+      <li><a href="advertising.html">Advertising</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a class="btn btn-green" href="https://wa.me/254745365756">Get a Quote</a></li>
+    </ul>
+
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+
+    <div class="hero-text">
+      <div class="eyebrow">Creative Ideas. Powerful Prints.</div>
+
+      <h1>Your Ideas Deserve <span>To Be Seen.</span></h1>
+
+      <p>
+        We bring ideas to life through creative graphic design,
+        quality printing, professional branding and outdoor advertising.
+        Let's make your brand stand out.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#services" class="btn btn-orange">Explore Our Services →</a>
+        <a href="https://wa.me/254745365756" class="btn btn-outline">Talk to Us</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="images/hero.png" alt="Dadris Graphix creative design and printing showcase">
+      <div class="hero-note">CREATIVITY THAT GETS NOTICED.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INTRO STRIP -->
+<div class="intro-strip">
+  <div class="container intro-inner">
+    <strong>DESIGN. PRINT. BRAND. ADVERTISE.</strong>
+    <span>Serving businesses and individuals in Kakamega and across Kenya.</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+
+    <div class="section-heading center">
+      <div class="eyebrow">What We Do</div>
+      <h2>Creative Solutions. Quality Results.</h2>
+      <p>
+        From the first design to the final printed product,
+        we help you present your ideas professionally.
+      </p>
+    </div>
+
+    <div class="service-grid">
+
+      <article class="service-card">
+        <div class="service-number">01 / DESIGN</div>
+        <h3>Graphic Design</h3>
+        <p>Posters, flyers, logos, business cards, invitations, campaign materials and marketing designs.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-number">02 / PRINT</div>
+        <h3>Printing Services</h3>
+        <p>Document printing, large-format printing, brochures, stickers and promotional materials.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-number">03 / BRAND</div>
+        <h3>Vehicle Branding</h3>
+        <p>Professional vehicle graphics and custom branding that puts your business on the move.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-number">04 / APPAREL</div>
+        <h3>Custom Apparel</h3>
+        <p>Branded T-shirts, caps, uniforms, reflectors and personalised clothing.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-number">05 / SIGNAGE</div>
+        <h3>Signs & Shop Branding</h3>
+        <p>Business signs, shop displays, promotional signage and branded business spaces.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-number">06 / ADVERTISING</div>
+        <h3>Outdoor Advertising</h3>
+        <p>Billboard and street-pole advertising opportunities in Matungu.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container about-grid">
+
+    <div class="about-image">
+      <img src="images/shop.jpeg" alt="Dadris Graphix shop in Kakamega" loading="lazy">
+      <div class="about-tag">Your Creative Partner</div>
+    </div>
+
+    <div class="about-text">
+      <div class="eyebrow">About Dadris Graphix</div>
+      <h2>We Turn Creative Ideas Into Reality.</h2>
+
+      <p>
+        Dadris Graphix Printing & Signs is a creative design,
+        printing, branding and advertising business based in
+        Ogalo, Kakamega County, Kenya.
+      </p>
+
+      <p>
+        We work with individuals, businesses, organisations
+        and institutions to create designs and printed products
+        that communicate clearly and make lasting impressions.
+      </p>
+
+      <p>
+        Whether you need a simple poster, branded merchandise,
+        vehicle graphics or outdoor advertising, we are ready
+        to bring your project to life.
+      </p>
+
+      <a href="https://wa.me/254745365756" class="btn btn-green">Let's Work Together →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+
+    <div class="section-heading center">
+      <div class="eyebrow">Our Creative Work</div>
+      <h2>Work That Speaks For Itself.</h2>
+      <p>
+        A look at some of the design, printing and branding
+        projects we've brought to life.
+      </p>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <article class="portfolio-item">
+        <img src="images/poster-1.jpeg" alt="Promotional poster design by Dadris Graphix" loading="lazy">
+        <div class="portfolio-label">
+          <h3>Graphic Design</h3>
+          <p>Promotional posters and artwork</p>
+        </div>
+      </article>
+
+      <article class="portfolio-item">
+        <img src="images/vehicle-1.jpeg" alt="Vehicle branding project" loading="lazy">
+        <div class="portfolio-label">
+          <h3>Vehicle Branding</h3>
+          <p>Creative mobile advertising</p>
+        </div>
+      </article>
+
+      <article class="portfolio-item">
+        <img src="images/signage-1.jpeg" alt="Business signage design" loading="lazy">
+        <div class="portfolio-label">
+          <h3>Business Signage</h3>
+          <p>Signs that attract attention</p>
+        </div>
+      </article>
+
+      <article class="portfolio-item">
+        <img src="images/tshirts.jpeg" alt="Custom printed T-shirts" loading="lazy">
+        <div class="portfolio-label">
+          <h3>T-shirt Printing</h3>
+          <p>Custom branded apparel</p>
+        </div>
+      </article>
+
+      <article class="portfolio-item">
+        <img src="images/caps.jpeg" alt="Custom branded caps" loading="lazy">
+        <div class="portfolio-label">
+          <h3>Custom Caps</h3>
+          <p>Branded promotional products</p>
+        </div>
+      </article>
+
+      <article class="portfolio-item">
+        <img src="images/reflectors.jpeg" alt="Branded reflector jackets" loading="lazy">
+        <div class="portfolio-label">
+          <h3>Reflector Branding</h3>
+          <p>Professional branded workwear</p>
+        </div>
+      </article>
+
+      <article class="portfolio-item">
+        <img src="images/printing.jpeg" alt="Printing work at Dadris Graphix" loading="lazy">
+        <div class="portfolio-label">
+          <h3>Printing Projects</h3>
+          <p>Quality printing and finishing</p>
+        </div>
+      </article>
+
+      <article class="portfolio-item">
+        <img src="images/printing-work.jpeg" alt="Dadris Graphix printing production" loading="lazy">
+        <div class="portfolio-label">
+          <h3>Print Production</h3>
+          <p>From design to finished product</p>
+        </div>
+      </article>
+
+      <article class="portfolio-item">
+        <img src="images/branding.jpeg" alt="Outdoor branding project" loading="lazy">
+        <div class="portfolio-label">
+          <h3>Outdoor Branding</h3>
+          <p>Creative outdoor promotions</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- OUTDOOR ADVERTISING -->
+<section class="outdoor" id="advertising">
+  <div class="container">
+
+    <div class="section-heading center">
+      <div class="eyebrow">Advertise With Us</div>
+      <h2>Take Your Brand Beyond The Walls.</h2>
+      <p>
+        Put your message where people can see it.
+        Explore our outdoor advertising opportunities in Matungu.
+      </p>
+    </div>
+
+    <div class="outdoor-grid">
+
+      <article class="outdoor-card">
+        <img src="images/billboard.jpeg" alt="Billboard advertising in Matungu" loading="lazy">
+
+        <div class="outdoor-content">
+          <h3>Billboard Advertising</h3>
+          <p>
+            Give your business greater visibility through
+            billboard advertising in Matungu. Ideal for businesses,
+            campaigns, events and product promotions.
+          </p>
+
+          <a href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20am%20interested%20in%20billboard%20advertising."
+             class="btn btn-green">Enquire About Billboards →</a>
+        </div>
+      </article>
+
+      <article class="outdoor-card">
+        <img src="images/streetpole.jpeg" alt="Street-pole advertising in Matungu" loading="lazy">
+
+        <div class="outdoor-content">
+          <h3>Street-Pole Advertising</h3>
+          <p>
+            Reach people as they move through the streets
+            with street-pole advertising opportunities in Matungu.
+          </p>
+
+          <a href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20am%20interested%20in%20street-pole%20advertising."
+             class="btn btn-green">Enquire About Street Poles →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="services">
+  <div class="container about-grid">
+
+    <div class="about-text">
+      <div class="eyebrow">People Behind The Work</div>
+      <h2>Creative Work. Dedicated People.</h2>
+
+      <p>
+        Every project takes creativity, care and attention
+        to detail. Our team is committed to helping clients
+        get quality design, printing and branding services.
+      </p>
+
+      <a href="https://wa.me/254745365756" class="btn btn-green">Talk to Our Team →</a>
+    </div>
+
+    <div class="about-image">
+      <img src="images/team.jpeg" alt="Dadris Graphix team" loading="lazy">
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="cta" id="contact">
+  <div class="container">
+    <div class="eyebrow" style="color:#ffd29e;">Let's Create Something Great</div>
+    <h2>Have a Project in Mind?</h2>
+    <p>
+      Let's discuss your next design, printing, branding
+      or advertising project.
+    </p>
+    <a href="https://wa.me/254745365756" class="btn btn-orange">Start Your Project →</a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="Dadris Graphix logo">
+
+        <p>
+          Dadris Graphix Printing & Signs delivers creative
+          design, quality printing, branding and outdoor
+          advertising solutions.
+        </p>
+
+        <br>
+        <p>📍 Ogalo, Kakamega County, Kenya</p>
+      </div>
+
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#portfolio">Our Work</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#advertising">Outdoor Advertising</a></li>
+
+        </ul>
+      </div>
+
+      <div>
+        <h3>Contact Us</h3>
+        <ul>
+          <li><a href="tel:0745365756">0745 365 756</a></li>
+          <li><a href="tel:0708401714">0708 401 714</a></li>
+          <li><a href="https://wa.me/254745365756">WhatsApp Us</a></li>
+          <li><a href="https://wa.me/254708401714">Alternative WhatsApp</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © <span id="year"></span> Dadris Graphix Printing & Signs.
+      All Rights Reserved.
+    </div>
+
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a class="whatsapp"
+   href="https://wa.me/254745365756"
+   target="_blank"
+   rel="noopener"
+   aria-label="Chat with Dadris Graphix on WhatsApp">✆</a>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("active");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation");
+  });
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 900) {
+    navLinks.classList.remove("active");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation");
+  }
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script type="module" src="js/supabase.js"></script>
+</body>
+</html>

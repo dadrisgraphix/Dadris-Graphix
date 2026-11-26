@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Dadris Graphix | Admin Dashboard</title>
+<style>
+:root{--dark:#101814;--panel:#1b2720;--gold:#f4a51c;--bg:#f4f6f4;--line:#e5eae5;--muted:#839087;--green:#25864b;--red:#d94343}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:var(--bg);color:#263128}
+button,input,select,textarea{font:inherit}button{cursor:pointer}
+.sidebar{position:fixed;inset:0 auto 0 0;width:245px;background:var(--dark);color:white;display:flex;flex-direction:column;z-index:20;transition:.2s}
+.brand{text-align:center;padding:28px 12px;border-bottom:1px solid #2b382f}
+.brand h2{font-size:20px;letter-spacing:1px}
+.brand span{display:block;color:var(--gold);font-size:10px;font-weight:bold;letter-spacing:4px;margin-top:7px}
+.nav-title{padding:25px 20px 12px;color:#89968d;font-size:10px;font-weight:bold;letter-spacing:1.5px}
+nav{padding:0 11px;display:grid;gap:4px}
+.nav-link{border:0;background:none;color:#bdc8bf;text-align:left;padding:12px 14px;border-radius:6px;font-size:13px}
+.nav-link:hover,.nav-link.active{background:#26372c;color:white}
+.nav-link.active{border-left:3px solid var(--gold)}
+.side-bottom{margin-top:auto;padding:17px;border-top:1px solid #2b382f}
+.user-name{font-size:12px;font-weight:bold}.user-role{font-size:10px;color:#9eaaa1;margin-top:5px}
+.logout{width:100%;margin-top:14px;padding:10px;background:none;border:1px solid #435248;border-radius:5px;color:#ffb1a8;font-size:12px}
+.main{margin-left:245px;min-height:100vh;display:flex;flex-direction:column}
+.topbar{height:70px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 25px;position:sticky;top:0;z-index:10}
+.topbar h3{font-size:17px}.topbar small{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+.menu{display:none;background:none;border:0;font-size:23px;margin-right:15px}
+.content{padding:25px;flex:1}.section{display:none}.section.active{display:block}
+.heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}
+.heading h1{font-size:22px;margin-bottom:6px}.heading p{font-size:12px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+.stat{background:white;border:1px solid var(--line);border-radius:8px;padding:17px}
+.stat span{font-size:11px;color:var(--muted)}.stat strong{display:block;font-size:25px;margin-top:8px}
+.panel{background:white;border:1px solid var(--line);border-radius:8px;margin-bottom:18px;overflow:hidden}
+.panel-head{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.panel-head h3{font-size:14px}.panel-body{padding:18px}
+.btn{padding:10px 14px;border:0;border-radius:5px;font-size:11px;font-weight:bold}
+.primary{background:var(--gold);color:#171c16}.secondary{background:white;border:1px solid #dce4dd;color:#344238}
+.danger{background:#fff0f0;color:#c33;border:1px solid #f2d4d4}
+input,select,textarea{width:100%;padding:10px;border:1px solid #dce4dd;border-radius:5px;background:white;font-size:12px;outline:none;color:#273229}
+input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+label{display:block;font-size:11px;font-weight:bold;margin-bottom:7px}
+.field{margin-bottom:14px}.field textarea{resize:vertical}
+.grid-form{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}.full{grid-column:1/-1}
+.check-label{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:normal}
+.check-label input{width:auto}.form-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.form-message{font-size:11px;margin-top:10px}.success{color:var(--green)}.error{color:var(--red)}
+.filter{display:flex;gap:10px;margin-bottom:14px}.filter input{flex:1}
+.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:600px}
+th{text-align:left;background:#fafbfa;color:#718076;font-size:10px;text-transform:uppercase;padding:12px}
+td{padding:12px;border-top:1px solid #edf0ed;font-size:11px;color:#455047;vertical-align:middle}
+td strong{color:#253128}.empty{text-align:center;color:#89958d;padding:28px!important}
+.badge{display:inline-block;padding:5px 8px;border-radius:20px;background:#eef2ee;font-size:10px;text-transform:capitalize}
+.badge.new{background:#fff1d7;color:#9c680a}.badge.completed,.badge.published{background:#e2f6e8;color:#23864a}
+.badge.cancelled,.badge.unpublished{background:#ffe8e8;color:#c23e3e}.badge.contacted,.badge.in_progress{background:#e5efff;color:#376bb3}
+.editor{display:none}.editor.open{display:block}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.item{background:white;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.item img{width:100%;height:160px;object-fit:cover;background:#edf1ed}
+.item-body{padding:13px}.item-body h3{font-size:13px;margin-bottom:6px}
+.item-body p{font-size:11px;color:#849087;line-height:1.5}
+.actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}.actions button{font-size:10px;padding:7px 9px}
+.notice{padding:17px;border:1px solid #f0dfb9;background:#fff9ed;border-radius:7px;color:#76551a;font-size:12px;line-height:1.6}
+footer{text-align:center;padding:17px;color:#89958d;font-size:10px}
+.toast{position:fixed;bottom:20px;right:20px;background:#1b2720;color:white;padding:13px 18px;border-radius:6px;font-size:12px;display:none;z-index:50;max-width:90%}
+.toast.show{display:block}[hidden]{display:none!important}
+#campaignPreview{display:none;max-width:220px;max-height:150px;object-fit:cover;border-radius:7px;margin:8px 0}
+@media(max-width:1000px){.stats{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main{margin-left:0}.menu{display:block}.content{padding:16px 12px}.heading{align-items:flex-start;flex-direction:column}.cards{grid-template-columns:1fr}.grid-form{grid-template-columns:1fr}.full{grid-column:auto}.filter{flex-direction:column}}
+</style>
+</head>
+<body>
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><h2>DADRIS GRAPHIX</h2><span>PRINTING &amp; SIGNS</span></div>
+  <div class="nav-title">ADMINISTRATION</div>
+  <nav>
+    <button class="nav-link active" data-page="overview">▦ &nbsp; Overview</button>
+    <button class="nav-link" data-page="enquiries">✉ &nbsp; Enquiries</button>
+    <button class="nav-link" data-page="portfolio">▣ &nbsp; Portfolio</button>
+    <button class="nav-link" data-page="services">✦ &nbsp; Services</button>
+    <button class="nav-link" data-page="advertising">▤ &nbsp; Advertising</button>
+    <button class="nav-link" data-page="content">▧ &nbsp; Website Content</button>
+    <button class="nav-link" data-page="team" id="teamNav" hidden>♙ &nbsp; Team Management</button>
+    <button class="nav-link" data-page="settings">⚙ &nbsp; Settings</button>
+  </nav>
+  <div class="side-bottom">
+    <div class="user-name" id="userName">Loading account...</div>
+    <div class="user-role" id="userRole"></div>
+    <button class="logout" id="logout">↪ Sign Out</button>
+  </div>
+</aside>
+
+<main class="main">
+<header class="topbar">
+  <button class="menu" id="menu">☰</button>
+  <div><h3 id="pageTitle">Overview</h3><small>Dadris Graphix website administration</small></div>
+</header>
+
+<div class="content">
+<section class="section active" id="overview">
+  <div class="heading"><div><h1>Welcome back, <span id="welcomeName">Administrator</span>!</h1><p>Here's what's happening with your business.</p></div><small id="today"></small></div>
+  <div class="stats">
+    <div class="stat"><span>Total Enquiries</span><strong id="statEnquiries">0</strong></div>
+    <div class="stat"><span>New Enquiries</span><strong id="statNew">0</strong></div>
+    <div class="stat"><span>Portfolio Projects</span><strong id="statProjects">0</strong></div>
+    <div class="stat"><span>Published Projects</span><strong id="statPublished">0</strong></div>
+  </div>
+  <div class="panel">
+    <div class="panel-head"><h3>Recent Enquiries</h3><button class="btn secondary" data-go="enquiries">View All</button></div>
+    <div class="table-wrap"><table><thead><tr><th>Customer</th><th>Phone</th><th>Service</th><th>Status</th><th>Date</th></tr></thead><tbody id="recentTable"><tr><td colspan="5" class="empty">Loading...</td></tr></tbody></table></div>
+  </div>
+</section>
+
+<section class="section" id="enquiries">
+  <div class="heading"><div><h1>Customer Enquiries</h1><p>Review requests and update their progress.</p></div><button class="btn secondary" id="refreshEnquiries">↻ Refresh</button></div>
+  <div class="filter">
+    <input id="enquirySearch" placeholder="Search customer, phone, service or message">
+    <select id="enquiryFilter"><option value="all">All statuses</option><option value="new">New</option><option value="contacted">Contacted</option><option value="in_progress">In progress</option><option value="completed">Completed</option><option value="cancelled">Cancelled</option></select>
+  </div>
+  <div class="panel"><div class="table-wrap"><table><thead><tr><th>Customer</th><th>Phone</th><th>Service</th><th>Message</th><th>Status</th><th>Date</th></tr></thead><tbody id="enquiryTable"></tbody></table></div></div>
+</section>
+
+<section class="section" id="portfolio">
+  <div class="heading"><div><h1>Portfolio</h1><p>Manage projects displayed on your website.</p></div><button class="btn primary editor-only" id="addPortfolio">+ Add Project</button></div>
+  <div class="panel editor" id="portfolioEditor">
+    <div class="panel-head"><h3 id="portfolioFormTitle">Add Project</h3><button class="btn secondary" data-close="portfolioEditor">Close</button></div>
+    <div class="panel-body">
+      <form id="portfolioForm"><input type="hidden" id="portfolioId">
+        <div class="grid-form">
+          <div class="field"><label>Project Title *</label><input id="portfolioTitle" required></div>
+          <div class="field"><label>Category *</label><input id="portfolioCategory" required placeholder="e.g. Branding"></div>
+          <div class="field full"><label>Description</label><textarea id="portfolioDescription" rows="3"></textarea></div>
+          <div class="field full"><label>Project Image</label><input type="file" id="portfolioImage" accept="image/*"></div>
+          <div class="field full"><label class="check-label"><input type="checkbox" id="portfolioPublished" checked> Publish this project</label></div>
+        </div>
+        <button class="btn primary">Save Project</button><p class="form-message" id="portfolioMessage"></p>
+      </form>
+    </div>
+  </div>
+  <div class="cards" id="portfolioCards"><p class="empty">Loading projects...</p></div>
+</section>
+
+<section class="section" id="services">
+  <div class="heading"><div><h1>Services</h1><p>Manage the services displayed on your website.</p></div><button class="btn primary editor-only" id="addService">+ Add Service</button></div>
+  <div class="panel editor" id="serviceEditor">
+    <div class="panel-head"><h3 id="serviceFormTitle">Add Service</h3><button class="btn secondary" data-close="serviceEditor">Close</button></div>
+    <div class="panel-body">
+      <form id="serviceForm"><input type="hidden" id="serviceId">
+        <div class="grid-form">
+          <div class="field"><label>Service Title *</label><input id="serviceTitle" required></div>
+          <div class="field"><label>Slug</label><input id="serviceSlug" placeholder="Automatically generated if blank"></div>
+          <div class="field"><label>Category</label><input id="serviceCategory"></div>
+          <div class="field"><label>Price Text</label><input id="servicePrice" placeholder="e.g. Request a quote"></div>
+          <div class="field full"><label>Description</label><textarea id="serviceDescription" rows="3"></textarea></div>
+          <div class="field full"><label>Service Image</label><input type="file" id="serviceImage" accept="image/*"></div>
+          <div class="field"><label>Display Order</label><input type="number" id="serviceOrder" value="0"></div>
+          <div class="field"><label class="check-label"><input type="checkbox" id="servicePublished" checked> Publish service</label></div>
+        </div>
+        <button class="btn primary">Save Service</button><p class="form-message" id="serviceMessage"></p>
+      </form>
+    </div>
+  </div>
+  <div class="cards" id="serviceCards"><p class="empty">Loading services...</p></div>
+</section>
+
+<!-- ADVERTISING IS AN INTERNAL DASHBOARD SECTION -->
+<section class="section" id="advertising">
+  <div class="heading"><div><h1>Advertising Campaigns</h1><p>Create and manage advertising banners displayed on your website.</p></div><button class="btn primary editor-only" id="addCampaign">+ Create Campaign</button></div>
+  <div class="stats">
+    <div class="stat"><span>Total Campaigns</span><strong id="totalCampaigns">0</strong></div>
+    <div class="stat"><span>Published</span><strong id="publishedCampaigns">0</strong></div>
+    <div class="stat"><span>Drafts</span><strong id="draftCampaigns">0</strong></div>
+    <div class="stat"><span>Campaign Manager</span><strong>Active</strong></div>
+  </div>
+  <div class="panel editor" id="campaignEditor">
+    <div class="panel-head"><h3 id="campaignFormTitle">Create Campaign</h3><button class="btn secondary" data-close="campaignEditor">Close</button></div>
+    <div class="panel-body">
+      <form id="campaignForm"><input type="hidden" id="campaignId">
+        <div class="grid-form">
+          <div class="field full"><label>Campaign Title *</label><input id="campaignTitle" required></div>
+          <div class="field full"><label>Description</label><textarea id="campaignDescription" rows="3"></textarea></div>
+          <div class="field full"><label>Campaign Image</label><input type="file" id="campaignImage" accept="image/*"><img id="campaignPreview" alt="Campaign preview"></div>
+          <div class="field"><label>Button Text</label><input id="campaignCtaText" placeholder="Learn More"></div>
+          <div class="field"><label>Button URL</label><input id="campaignCtaUrl" type="url" placeholder="https://example.com"></div>
+          <div class="field"><label>Display Order</label><input type="number" id="campaignOrder" value="0"></div>
+          <div class="field"><label class="check-label"><input type="checkbox" id="campaignPublished" checked> Publish this campaign</label></div>
+        </div>
+        <div class="form-actions"><button class="btn primary" id="campaignSaveButton">Save Campaign</button><button type="button" class="btn secondary" data-close="campaignEditor">Cancel</button></div>
+        <p class="form-message" id="campaignMessage"></p>
+      </form>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="panel-head"><h3>All Campaigns</h3><button class="btn secondary" id="refreshCampaigns">↻ Refresh</button></div>
+    <div class="table-wrap"><table><thead><tr><th>Campaign</th><th>Order</th><th>Status</th><th>Actions</th></tr></thead><tbody id="campaignTable"><tr><td colspan="4" class="empty">Loading campaigns...</td></tr></tbody></table></div>
+  </div>
+</section>
+
+<section class="section" id="content">
+  <div class="heading"><div><h1>Website Content</h1><p>Edit text content stored in your website content table.</p></div><button class="btn primary editor-only" id="addContent">+ Add Content</button></div>
+  <div class="panel editor" id="contentEditor">
+    <div class="panel-head"><h3 id="contentFormTitle">Add Content</h3><button class="btn secondary" data-close="contentEditor">Close</button></div>
+    <div class="panel-body">
+      <form id="contentForm"><input type="hidden" id="contentId">
+        <div class="field"><label>Content Title *</label><input id="contentTitle" required></div>
+        <div class="field"><label>Content Key *</label><input id="contentKey" required placeholder="e.g. homepage_intro"></div>
+        <div class="field"><label>Content Body</label><textarea id="contentBody" rows="5"></textarea></div>
+        <button class="btn primary">Save Content</button><p class="form-message" id="contentMessage"></p>
+      </form>
+    </div>
+  </div>
+  <div class="filter"><input id="contentSearch" placeholder="Search content title or key"></div>
+  <div class="panel"><div class="table-wrap"><table><thead><tr><th>Title</th><th>Key</th><th>Last Updated</th><th>Actions</th></tr></thead><tbody id="contentTable"></tbody></table></div></div>
+</section>
+
+<section class="section" id="team">
+  <div class="heading"><div><h1>Team Management</h1><p>Manage the roles of existing registered team members.</p></div></div>
+  <div class="panel"><div class="panel-head"><h3>Team Members</h3></div><div class="table-wrap"><table><thead><tr><th>Name</th><th>Role</th><th>Created</th><th>Change Role</th></tr></thead><tbody id="teamTable"></tbody></table></div></div>
+  <div class="panel-body"><p style="font-size:11px;color:#839087">Creating authentication accounts must be done through Supabase Authentication. This section only manages existing profile roles.</p></div>
+</section>
+
+<section class="section" id="settings">
+  <div class="heading"><div><h1>Settings</h1><p>Your administrator account details.</p></div></div>
+  <div class="panel" style="max-width:650px"><div class="panel-body">
+    <form id="settingsForm">
+      <div class="field"><label>Full Name</label><input id="settingsName" required></div>
+      <div class="field"><label>Email Address</label><input id="settingsEmail" disabled></div>
+      <div class="field"><label>Role</label><input id="settingsRole" disabled></div>
+      <button class="btn primary">Update Name</button><p class="form-message" id="settingsMessage"></p>
+    </form>
+  </div></div>
+</section>
+</div>
+<footer>© <span id="year"></span> Dadris Graphix Printing &amp; Signs</footer>
+</main>
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import {supabase} from "../../js/supabase.js";
+
+const $=id=>document.getElementById(id);
+const S={user:null,profile:null,role:"",enquiries:[],portfolio:[],services:[],campaigns:[],content:[],team:[]};
+const BUCKET="portfolio-images";
+
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const slug=v=>String(v||"").toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const date=v=>v?new Date(v).toLocaleDateString("en-KE",{day:"numeric",month:"short",year:"numeric"}):"—";
+const badge=v=>`<span class="badge ${esc(v||"new")}">${esc(String(v||"new").replaceAll("_"," "))}</span>`;
+
+function toast(t){$("toast").textContent=t;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),3200)}
+function msg(id,t,type=""){const el=$(id);el.textContent=t;el.className="form-message "+type}
+function open(id){$(id).classList.add("open");$(id).scrollIntoView({behavior:"smooth",block:"start"})}
+function close(id){$(id).classList.remove("open")}
+
+document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",()=>close(b.dataset.close)));
+
+async function upload(file,folder=""){
+ if(!file)return null;
+ if(!file.type.startsWith("image/"))throw Error("Choose a valid image file.");
+ if(file.size>8*1024*1024)throw Error("Image must be smaller than 8MB.");
+ const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,"-");
+ const path=(folder?folder+"/":"")+Date.now()+"-"+crypto.randomUUID()+"-"+safeName;
+ const {error}=await supabase.storage.from(BUCKET).upload(path,file,{cacheControl:"3600",upsert:false});
+ if(error)throw error;
+ return supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
+}
+async function removeImage(url){
+ if(!url)return;
+ const marker="/storage/v1/object/public/"+BUCKET+"/";
+ const i=url.indexOf(marker);if(i<0)return;
+ const path=decodeURIComponent(url.slice(i+marker.length));
+ const {error}=await supabase.storage.from(BUCKET).remove([path]);
+ if(error)console.warn("Image cleanup:",error.message);
+}
+
+async function init(){
+ const {data:{session},error}=await supabase.auth.getSession();if(error)throw error;
+ if(!session){location.replace("../index.html");return}
+ S.user=session.user;
+ const {data:p,error:pe}=await supabase.from("profiles").select("id,full_name,role,created_at").eq("id",session.user.id).single();
+ if(pe)throw pe;
+ if(!["admin","editor","viewer"].includes(p.role)){await supabase.auth.signOut();location.replace("../index.html");return}
+ S.profile=p;S.role=p.role;
+ $("userName").textContent=p.full_name||session.user.email;
+ $("userRole").textContent=p.role;$("welcomeName").textContent=p.full_name||"Administrator";
+ $("settingsName").value=p.full_name||"";$("settingsEmail").value=session.user.email||"";$("settingsRole").value=p.role;
+ $("today").textContent=new Date().toLocaleDateString("en-KE",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+ $("year").textContent=new Date().getFullYear();
+ if(p.role==="admin")$("teamNav").hidden=false;
+ if(p.role==="viewer")document.querySelectorAll(".editor-only").forEach(x=>x.hidden=true);
+ await loadOverview();
+}
+async function signOut(){await supabase.auth.signOut();location.replace("../index.html")}
+$("logout").addEventListener("click",signOut);
+$("menu").addEventListener("click",()=>$("sidebar").classList.toggle("open"));
+
+/* Every sidebar button loads its matching section inside this page. */
+const loaders={
+ overview:loadOverview,
+ enquiries:loadEnquiries,
+ portfolio:loadPortfolio,
+ services:loadServices,
+ advertising:loadCampaigns,
+ content:loadContent,
+ team:loadTeam,
+ settings:()=>{}
+};
+function navigate(page){
+ const section=$(page);
+ if(!section)return;
+ document.querySelectorAll(".section").forEach(x=>x.classList.toggle("active",x.id===page));
+ document.querySelectorAll(".nav-link").forEach(x=>x.classList.toggle("active",x.dataset.page===page));
+ $("pageTitle").textContent=document.querySelector(`[data-page="${page}"]`)?.textContent.trim()||page;
+ $("sidebar").classList.remove("open");
+ if(loaders[page])loaders[page]();
+}
+document.querySelectorAll(".nav-link[data-page]").forEach(b=>b.addEventListener("click",()=>navigate(b.dataset.page)));
+document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>navigate(b.dataset.go)));
+
+async function loadOverview(){await Promise.allSettled([loadEnquiries(),loadPortfolio()])}
+function updateStats(){
+ $("statEnquiries").textContent=S.enquiries.length;
+ $("statNew").textContent=S.enquiries.filter(x=>(x.status||"new")==="new").length;
+ $("statProjects").textContent=S.portfolio.length;
+ $("statPublished").textContent=S.portfolio.filter(x=>x.is_published).length;
+}
+
+/* ENQUIRIES */
+async function loadEnquiries(){
+ try{
+  const {data,error}=await supabase.from("enquiries").select("*").order("created_at",{ascending:false});
+  if(error)throw error;S.enquiries=data||[];renderEnquiries();updateStats();
+ }catch(e){
+  $("enquiryTable").innerHTML=`<tr><td colspan="6" class="empty">${esc(e.message)}</td></tr>`;
+  $("recentTable").innerHTML=`<tr><td colspan="5" class="empty">${esc(e.message)}</td></tr>`;
+ }
+}
+function renderEnquiries(){
+ const q=$("enquirySearch").value.toLowerCase(),f=$("enquiryFilter").value;
+ const rows=S.enquiries.filter(x=>[x.name,x.phone,x.service,x.message].join(" ").toLowerCase().includes(q)&&(f==="all"||(x.status||"new")===f));
+ $("enquiryTable").innerHTML=rows.length?rows.map(x=>`
+ <tr><td><strong>${esc(x.name)}</strong></td><td>${esc(x.phone)}</td><td>${esc(x.service)}</td><td>${esc((x.message||"").slice(0,65))}</td>
+ <td><select data-enquiry="${esc(x.id)}">${["new","contacted","in_progress","completed","cancelled"].map(v=>`<option value="${v}" ${(x.status||"new")===v?"selected":""}>${v.replaceAll("_"," ")}</option>`).join("")}</select></td>
+ <td>${date(x.created_at)}</td></tr>`).join(""):'<tr><td colspan="6" class="empty">No enquiries found.</td></tr>';
+ $("recentTable").innerHTML=S.enquiries.length?S.enquiries.slice(0,5).map(x=>`
+ <tr><td><strong>${esc(x.name)}</strong></td><td>${esc(x.phone)}</td><td>${esc(x.service)}</td><td>${badge(x.status)}</td><td>${date(x.created_at)}</td></tr>`).join(""):'<tr><td colspan="5" class="empty">No enquiries yet.</td></tr>';
+}
+$("enquirySearch").addEventListener("input",renderEnquiries);
+$("enquiryFilter").addEventListener("change",renderEnquiries);
+$("refreshEnquiries").addEventListener("click",loadEnquiries);
+$("enquiryTable").addEventListener("change",async e=>{
+ const el=e.target.closest("[data-enquiry]");if(!el)return;
+ const {error}=await supabase.from("enquiries").update({status:el.value}).eq("id",el.dataset.enquiry);
+ if(error){toast(error.message);return loadEnquiries()}
+ const row=S.enquiries.find(x=>x.id===el.dataset.enquiry);if(row)row.status=el.value;
+ renderEnquiries();updateStats();toast("Enquiry status updated.");
+});
+
+/* PORTFOLIO */
+$("addPortfolio").addEventListener("click",()=>{
+ $("portfolioForm").reset();$("portfolioId").value="";$("portfolioFormTitle").textContent="Add Project";open("portfolioEditor");
+});
+async function loadPortfolio(){
+ $("portfolioCards").innerHTML='<p class="empty">Loading projects...</p>';
+ try{
+  const {data,error}=await supabase.from("portfolio_items").select("*").order("sort_order").order("created_at",{ascending:false});
+  if(error)throw error;S.portfolio=data||[];renderPortfolio();updateStats();
+ }catch(e){$("portfolioCards").innerHTML=`<p class="empty">${esc(e.message)}</p>`}
+}
+function renderPortfolio(){
+ $("portfolioCards").innerHTML=S.portfolio.length?S.portfolio.map(x=>`
+ <article class="item">${x.image_url?`<img src="${esc(x.image_url)}" alt="${esc(x.title)}">`:""}
+ <div class="item-body"><h3>${esc(x.title)}</h3><p>${esc(x.category)} · ${esc(x.description)}</p>
+ <p style="margin-top:8px">${badge(x.is_published?"published":"unpublished")}</p>
+ <div class="actions"><button class="btn secondary" data-edit-p="${esc(x.id)}">Edit</button><button class="btn secondary" data-publish-p="${esc(x.id)}">${x.is_published?"Unpublish":"Publish"}</button>
+ ${S.role==="admin"?`<button class="btn danger" data-delete-p="${esc(x.id)}">Delete</button>`:""}</div></div></article>`).join(""):'<p class="empty">No portfolio projects yet.</p>';
+}
+$("portfolioForm").addEventListener("submit",async e=>{
+ e.preventDefault();if(S.role==="viewer")return;
+ const btn=e.submitter;btn.disabled=true;btn.textContent="Saving...";let newImage=null;
+ try{
+  const id=$("portfolioId").value,old=S.portfolio.find(x=>x.id===id),file=$("portfolioImage").files[0];
+  let image=old?.image_url||null;if(file){newImage=await upload(file,"portfolio");image=newImage}
+  if(!id&&!image)throw Error("Please select a project image.");
+  const payload={title:$("portfolioTitle").value.trim(),category:$("portfolioCategory").value.trim(),description:$("portfolioDescription").value.trim(),image_url:image,is_published:$("portfolioPublished").checked,updated_at:new Date().toISOString()};
+  const result=id?await supabase.from("portfolio_items").update(payload).eq("id",id):await supabase.from("portfolio_items").insert(payload);
+  if(result.error)throw result.error;if(file&&old?.image_url)await removeImage(old.image_url);
+  close("portfolioEditor");toast("Portfolio project saved.");await loadPortfolio();
+ }catch(err){if(newImage)await removeImage(newImage);msg("portfolioMessage",err.message,"error")}
+ finally{btn.disabled=false;btn.textContent="Save Project"}
+});
+$("portfolioCards").addEventListener("click",async e=>{
+ const edit=e.target.closest("[data-edit-p]"),pub=e.target.closest("[data-publish-p]"),del=e.target.closest("[data-delete-p]");
+ if(edit){
+  const x=S.portfolio.find(a=>a.id===edit.dataset.editP);if(!x)return;
+  $("portfolioId").value=x.id;$("portfolioTitle").value=x.title;$("portfolioCategory").value=x.category;
+  $("portfolioDescription").value=x.description||"";$("portfolioPublished").checked=x.is_published;
+  $("portfolioImage").value="";$("portfolioFormTitle").textContent="Edit Project";open("portfolioEditor");
+ }
+ if(pub){
+  const x=S.portfolio.find(a=>a.id===pub.dataset.publishP);if(!x)return;
+  const {error}=await supabase.from("portfolio_items").update({is_published:!x.is_published,updated_at:new Date().toISOString()}).eq("id",x.id);
+  if(error)toast(error.message);else{toast("Project visibility updated.");loadPortfolio()}
+ }
+ if(del){
+  if(S.role!=="admin")return toast("Admin permission required.");
+  const x=S.portfolio.find(a=>a.id===del.dataset.deleteP);if(!x||!confirm("Delete this project?"))return;
+  const {error}=await supabase.from("portfolio_items").delete().eq("id",x.id);
+  if(error)toast(error.message);else{await removeImage(x.image_url);toast("Project deleted.");loadPortfolio()}
+ }
+});
+
+/* SERVICES */
+$("addService").addEventListener("click",()=>{
+ $("serviceForm").reset();$("serviceId").value="";$("servicePublished").checked=true;
+ $("serviceFormTitle").textContent="Add Service";open("serviceEditor");
+});
+async function loadServices(){
+ $("serviceCards").innerHTML='<p class="empty">Loading services...</p>';
+ try{
+  const {data,error}=await supabase.from("services").select("*").order("sort_order").order("created_at",{ascending:false});
+  if(error)throw error;S.services=data||[];renderServices();
+ }catch(e){$("serviceCards").innerHTML=`<p class="empty">${esc(e.message)}</p>`}
+}
+function renderServices(){
+ $("serviceCards").innerHTML=S.services.length?S.services.map(x=>`
+ <article class="item">${x.image_url?`<img src="${esc(x.image_url)}" alt="${esc(x.title)}">`:""}
+ <div class="item-body"><h3>${esc(x.title)}</h3><p>${esc(x.category)} · ${esc(x.price_text)}</p><p>${esc(x.description)}</p>
+ <p style="margin-top:8px">${badge(x.is_published?"published":"unpublished")}</p>
+ <div class="actions"><button class="btn secondary" data-edit-s="${esc(x.id)}">Edit</button><button class="btn secondary" data-publish-s="${esc(x.id)}">${x.is_published?"Unpublish":"Publish"}</button>
+ ${S.role==="admin"?`<button class="btn danger" data-delete-s="${esc(x.id)}">Delete</button>`:""}</div></div></article>`).join(""):'<p class="empty">No services have been added.</p>';
+}
+$("serviceForm").addEventListener("submit",async e=>{
+ e.preventDefault();if(S.role==="viewer")return;
+ const btn=e.submitter;btn.disabled=true;btn.textContent="Saving...";let newImage=null;
+ try{
+  const id=$("serviceId").value,old=S.services.find(x=>x.id===id),file=$("serviceImage").files[0];
+  let image=old?.image_url||null;if(file){newImage=await upload(file,"services");image=newImage}
+  const title=$("serviceTitle").value.trim();
+  const payload={title,slug:slug($("serviceSlug").value||title),category:$("serviceCategory").value.trim(),description:$("serviceDescription").value.trim(),image_url:image,price_text:$("servicePrice").value.trim(),is_published:$("servicePublished").checked,sort_order:Number($("serviceOrder").value)||0,updated_at:new Date().toISOString()};
+  const result=id?await supabase.from("services").update(payload).eq("id",id):await supabase.from("services").insert(payload);
+  if(result.error)throw result.error;if(file&&old?.image_url)await removeImage(old.image_url);
+  close("serviceEditor");toast("Service saved.");await loadServices();
+ }catch(err){if(newImage)await removeImage(newImage);msg("serviceMessage",err.message,"error")}
+ finally{btn.disabled=false;btn.textContent="Save Service"}
+});
+$("serviceCards").addEventListener("click",async e=>{
+ const edit=e.target.closest("[data-edit-s]"),pub=e.target.closest("[data-publish-s]"),del=e.target.closest("[data-delete-s]");
+ if(edit){
+  const x=S.services.find(a=>a.id===edit.dataset.editS);if(!x)return;
+  $("serviceId").value=x.id;$("serviceTitle").value=x.title;$("serviceSlug").value=x.slug||"";
+  $("serviceCategory").value=x.category;$("servicePrice").value=x.price_text||"";
+  $("serviceDescription").value=x.description||"";$("serviceOrder").value=x.sort_order||0;
+  $("servicePublished").checked=x.is_published;$("serviceImage").value="";$("serviceFormTitle").textContent="Edit Service";open("serviceEditor");
+ }
+ if(pub){
+  const x=S.services.find(a=>a.id===pub.dataset.publishS);if(!x)return;
+  const {error}=await supabase.from("services").update({is_published:!x.is_published,updated_at:new Date().toISOString()}).eq("id",x.id);
+  if(error)toast(error.message);else{toast("Service visibility updated.");loadServices()}
+ }
+ if(del){
+  if(S.role!=="admin")return toast("Admin permission required.");
+  const x=S.services.find(a=>a.id===del.dataset.deleteS);if(!x||!confirm("Delete this service?"))return;
+  const {error}=await supabase.from("services").delete().eq("id",x.id);
+  if(error)toast(error.message);else{await removeImage(x.image_url);toast("Service deleted.");loadServices()}
+ }
+});
+
+/* ADVERTISING CAMPAIGNS */
+function resetCampaignForm(){
+ $("campaignForm").reset();$("campaignId").value="";$("campaignOrder").value=0;
+ $("campaignPublished").checked=true;$("campaignPreview").style.display="none";$("campaignPreview").src="";
+ $("campaignFormTitle").textContent="Create Campaign";$("campaignSaveButton").textContent="Save Campaign";msg("campaignMessage","");
+}
+$("addCampaign").addEventListener("click",()=>{resetCampaignForm();open("campaignEditor")});
+$("refreshCampaigns").addEventListener("click",loadCampaigns);
+$("campaignImage").addEventListener("change",()=>{
+ const file=$("campaignImage").files[0];if(!file)return;
+ $("campaignPreview").src=URL.createObjectURL(file);$("campaignPreview").style.display="block";
+});
+async function loadCampaigns(){
+ $("campaignTable").innerHTML='<tr><td colspan="4" class="empty">Loading campaigns...</td></tr>';
+ try{
+  const {data,error}=await supabase.from("advertising_campaigns").select("*").order("sort_order",{ascending:true}).order("created_at",{ascending:false});
+  if(error)throw error;S.campaigns=data||[];renderCampaigns();
+ }catch(e){$("campaignTable").innerHTML=`<tr><td colspan="4" class="empty">${esc(e.message)}</td></tr>`}
+}
+function renderCampaigns(){
+ const published=S.campaigns.filter(x=>x.is_published).length;
+ $("totalCampaigns").textContent=S.campaigns.length;$("publishedCampaigns").textContent=published;$("draftCampaigns").textContent=S.campaigns.length-published;
+ $("campaignTable").innerHTML=S.campaigns.length?S.campaigns.map(x=>`
+ <tr><td><strong>${esc(x.title)}</strong>${x.description?`<br><small>${esc(x.description.slice(0,90))}</small>`:""}</td>
+ <td>${Number(x.sort_order)||0}</td><td>${badge(x.is_published?"published":"unpublished")}</td>
+ <td><div class="actions"><button class="btn secondary" data-edit-campaign="${esc(x.id)}">Edit</button>
+ <button class="btn secondary" data-toggle-campaign="${esc(x.id)}">${x.is_published?"Unpublish":"Publish"}</button>
+ ${S.role==="admin"?`<button class="btn danger" data-delete-campaign="${esc(x.id)}">Delete</button>`:""}</div></td></tr>`).join(""):'<tr><td colspan="4" class="empty">No campaigns yet. Create your first campaign.</td></tr>';
+}
+$("campaignForm").addEventListener("submit",async e=>{
+ e.preventDefault();if(S.role==="viewer")return;
+ const btn=$("campaignSaveButton");btn.disabled=true;btn.textContent="Saving...";let newImage=null;
+ try{
+  const id=$("campaignId").value,old=S.campaigns.find(x=>x.id===id),file=$("campaignImage").files[0];
+  const title=$("campaignTitle").value.trim(),ctaUrl=$("campaignCtaUrl").value.trim();
+  if(!title)throw Error("Campaign title is required.");
+  if(ctaUrl){let parsed;try{parsed=new URL(ctaUrl)}catch{throw Error("Enter a valid button URL.")}if(!["http:","https:"].includes(parsed.protocol))throw Error("Button URL must begin with http:// or https://")}
+  let image=old?.image_url||null;if(file){newImage=await upload(file,"advertising");image=newImage}
+  const payload={title,description:$("campaignDescription").value.trim(),image_url:image,cta_text:$("campaignCtaText").value.trim()||"Learn More",cta_url:ctaUrl||null,is_published:$("campaignPublished").checked,sort_order:Number($("campaignOrder").value)||0,updated_at:new Date().toISOString()};
+  const result=id?await supabase.from("advertising_campaigns").update(payload).eq("id",id):await supabase.from("advertising_campaigns").insert(payload);
+  if(result.error)throw result.error;if(file&&old?.image_url)await removeImage(old.image_url);
+  close("campaignEditor");resetCampaignForm();toast("Campaign saved successfully.");await loadCampaigns();
+ }catch(err){if(newImage)await removeImage(newImage);msg("campaignMessage",err.message,"error")}
+ finally{btn.disabled=false;btn.textContent="Save Campaign"}
+});
+$("campaignTable").addEventListener("click",async e=>{
+ const edit=e.target.closest("[data-edit-campaign]"),toggle=e.target.closest("[data-toggle-campaign]"),del=e.target.closest("[data-delete-campaign]");
+ if(edit){
+  const x=S.campaigns.find(a=>a.id===edit.dataset.editCampaign);if(!x)return;resetCampaignForm();
+  $("campaignId").value=x.id;$("campaignTitle").value=x.title;$("campaignDescription").value=x.description||"";
+  $("campaignCtaText").value=x.cta_text||"";$("campaignCtaUrl").value=x.cta_url||"";
+  $("campaignOrder").value=x.sort_order||0;$("campaignPublished").checked=x.is_published;
+  $("campaignFormTitle").textContent="Edit Campaign";
+  if(x.image_url){$("campaignPreview").src=x.image_url;$("campaignPreview").style.display="block"}
+  open("campaignEditor");
+ }
+ if(toggle){
+  const x=S.campaigns.find(a=>a.id===toggle.dataset.toggleCampaign);if(!x)return;
+  const {error}=await supabase.from("advertising_campaigns").update({is_published:!x.is_published,updated_at:new Date().toISOString()}).eq("id",x.id);
+  if(error)toast(error.message);else{toast(x.is_published?"Campaign unpublished.":"Campaign published.");await loadCampaigns()}
+ }
+ if(del){
+  if(S.role!=="admin")return toast("Admin permission required.");
+  const x=S.campaigns.find(a=>a.id===del.dataset.deleteCampaign);if(!x||!confirm(`Delete "${x.title}" permanently?`))return;
+  const {error}=await supabase.from("advertising_campaigns").delete().eq("id",x.id);
+  if(error)toast(error.message);else{await removeImage(x.image_url);toast("Campaign deleted.");await loadCampaigns()}
+ }
+});
+
+/* WEBSITE CONTENT */
+$("addContent").addEventListener("click",()=>{
+ $("contentForm").reset();$("contentId").value="";$("contentFormTitle").textContent="Add Content";open("contentEditor");
+});
+async function loadContent(){
+ $("contentTable").innerHTML='<tr><td colspan="4" class="empty">Loading...</td></tr>';
+ try{
+  const {data,error}=await supabase.from("site_content").select("*").order("updated_at",{ascending:false});
+  if(error)throw error;S.content=data||[];renderContent();
+ }catch(e){$("contentTable").innerHTML=`<tr><td colspan="4" class="empty">${esc(e.message)}</td></tr>`}
+}
+function renderContent(){
+ const q=$("contentSearch").value.toLowerCase();
+ const rows=S.content.filter(x=>(x.title+" "+x.content_key).toLowerCase().includes(q));
+ $("contentTable").innerHTML=rows.length?rows.map(x=>`
+ <tr><td><strong>${esc(x.title)}</strong></td><td>${esc(x.content_key)}</td><td>${date(x.updated_at)}</td>
+ <td><button class="btn secondary" data-edit-c="${esc(x.id)}">Edit</button>${S.role==="admin"?` <button class="btn danger" data-delete-c="${esc(x.id)}">Delete</button>`:""}</td></tr>`).join(""):'<tr><td colspan="4" class="empty">No content records found.</td></tr>';
+}
+$("contentSearch").addEventListener("input",renderContent);
+$("contentForm").addEventListener("submit",async e=>{
+ e.preventDefault();if(S.role==="viewer")return;
+ const btn=e.submitter;btn.disabled=true;btn.textContent="Saving...";
+ try{
+  const id=$("contentId").value,key=slug($("contentKey").value).replaceAll("-","_");
+  const payload={content_key:key,title:$("contentTitle").value.trim(),body:$("contentBody").value.trim(),updated_by:S.user.id,updated_at:new Date().toISOString()};
+  const result=id?await supabase.from("site_content").update(payload).eq("id",id):await supabase.from("site_content").insert(payload);
+  if(result.error)throw result.error;close("contentEditor");toast("Content saved.");await loadContent();
+ }catch(err){msg("contentMessage",err.message,"error")}
+ finally{btn.disabled=false;btn.textContent="Save Content"}
+});
+$("contentTable").addEventListener("click",async e=>{
+ const edit=e.target.closest("[data-edit-c]"),del=e.target.closest("[data-delete-c]");
+ if(edit){
+  const x=S.content.find(a=>a.id===edit.dataset.editC);if(!x)return;
+  $("contentId").value=x.id;$("contentTitle").value=x.title;$("contentKey").value=x.content_key;
+  $("contentBody").value=x.body||"";$("contentFormTitle").textContent="Edit Content";open("contentEditor");
+ }
+ if(del){
+  if(S.role!=="admin")return toast("Admin permission required.");
+  const x=S.content.find(a=>a.id===del.dataset.deleteC);if(!x||!confirm("Delete this content record?"))return;
+  const {error}=await supabase.from("site_content").delete().eq("id",x.id);
+  if(error)toast(error.message);else{toast("Content deleted.");loadContent()}
+ }
+});
+
+/* TEAM MANAGEMENT */
+async function loadTeam(){
+ if(S.role!=="admin")return;
+ $("teamTable").innerHTML='<tr><td colspan="4" class="empty">Loading...</td></tr>';
+ try{
+  const {data,error}=await supabase.from("profiles").select("id,full_name,role,created_at").order("created_at");
+  if(error)throw error;S.team=data||[];
+  $("teamTable").innerHTML=S.team.map(x=>`
+  <tr><td><strong>${esc(x.full_name||"Team Member")}</strong>${x.id===S.user.id?" (You)":""}</td><td>${esc(x.role)}</td><td>${date(x.created_at)}</td>
+  <td><select data-role-id="${esc(x.id)}" ${x.id===S.user.id?"disabled":""}>${["admin","editor","viewer"].map(r=>`<option value="${r}" ${x.role===r?"selected":""}>${r}</option>`).join("")}</select></td></tr>`).join("")||'<tr><td colspan="4" class="empty">No profiles found.</td></tr>';
+ }catch(e){$("teamTable").innerHTML=`<tr><td colspan="4" class="empty">${esc(e.message)}</td></tr>`}
+}
+$("teamTable").addEventListener("change",async e=>{
+ const el=e.target.closest("[data-role-id]");if(!el||S.role!=="admin")return;
+ if(!confirm("Change this member's role?"))return loadTeam();
+ const {error}=await supabase.from("profiles").update({role:el.value}).eq("id",el.dataset.roleId);
+ if(error)toast(error.message);else{toast("Team role updated.");loadTeam()}
+});
+
+/* SETTINGS */
+$("settingsForm").addEventListener("submit",async e=>{
+ e.preventDefault();const name=$("settingsName").value.trim();if(!name)return;
+ try{
+  const {error}=await supabase.from("profiles").update({full_name:name}).eq("id",S.user.id);
+  if(error)throw error;
+  $("userName").textContent=name;$("welcomeName").textContent=name;
+  msg("settingsMessage","Name updated successfully.","success");toast("Profile updated.");
+ }catch(err){msg("settingsMessage",err.message,"error")}
+});
+
+/* START DASHBOARD */
+init().catch(error=>{
+ console.error(error);
+ document.querySelector(".content").innerHTML=`
+ <div class="panel"><div class="panel-body"><h2>Dashboard could not load</h2>
+ <p style="color:#c33;margin-top:12px">${esc(error.message)}</p>
+ <p style="font-size:12px;margin-top:10px">Check your Supabase login, profile permissions and browser console.</p>
+ <button class="btn primary" style="margin-top:15px" onclick="location.reload()">Try Again</button>
+ </div></div>`;
+});
+</script>
+</body>
+</html>

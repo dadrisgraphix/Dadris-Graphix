@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Advertising Manager | Dadris Graphix</title>
+<style>
+:root {
+  --green:#168447;
+  --dark:#101814;
+  --gold:#f4a51c;
+  --bg:#f4f6f4;
+  --line:#e5eae5;
+  --muted:#758078;
+  --red:#d94343;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:Arial,sans-serif;color:#263128}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+header{background:var(--dark);color:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+header strong{font-size:18px;letter-spacing:1px}
+header small{display:block;color:var(--gold);font-size:10px;letter-spacing:3px;margin-top:5px}
+header a{color:white;text-decoration:none;font-size:13px}
+main{max-width:1100px;margin:35px auto;padding:0 20px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:25px}
+h1{font-size:27px;margin:0 0 7px}
+.sub{color:var(--muted);font-size:14px}
+.btn{border:0;border-radius:7px;padding:11px 16px;font-weight:bold}
+.primary{background:var(--green);color:white}
+.secondary{background:#e9eee9;color:#263128}
+.danger{background:#fff0f0;color:var(--red)}
+.panel{background:white;border:1px solid var(--line);border-radius:12px;padding:22px;margin-bottom:22px}
+.panel h2{font-size:18px;margin:0 0 18px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+label{font-size:13px;font-weight:bold}
+input,textarea{width:100%;padding:12px;border:1px solid #dce3dc;border-radius:7px;background:white}
+textarea{min-height:95px;resize:vertical}
+input:focus,textarea:focus{outline:2px solid #b8dfc7;border-color:var(--green)}
+.check{display:flex;align-items:center;gap:9px;font-size:13px}
+.check input{width:auto}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.message{font-size:13px;margin-top:12px}
+.error{color:var(--red)}
+.success{color:var(--green)}
+.campaigns{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.campaign{background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.campaign img{width:100%;height:180px;object-fit:cover;background:#edf1ed}
+.campaign-body{padding:16px}
+.campaign h3{margin:0 0 8px;font-size:17px}
+.campaign p{font-size:13px;line-height:1.55;color:var(--muted)}
+.status{display:inline-block;font-size:11px;font-weight:bold;padding:5px 9px;border-radius:20px;background:#e6f5eb;color:#187a3e;margin:7px 0}
+.status.off{background:#f1f1f1;color:#777}
+.card-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.card-actions button{font-size:12px;padding:8px 10px}
+.empty{background:white;border:1px dashed #cbd5cb;padding:30px;text-align:center;color:var(--muted);border-radius:10px;grid-column:1/-1}
+#editor{display:none}
+#editor.open{display:block}
+#preview{max-width:220px;max-height:140px;object-fit:cover;border-radius:8px;display:none}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}h1{font-size:23px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <strong>DADRIS GRAPHIX</strong>
+    <small>PRINTING &amp; SIGNS</small>
+  </div>
+  <a href="dashboard/index.html">← Back to Dashboard</a>
+</header>
+
+<main>
+  <div class="top">
+    <div>
+      <h1>Advertising Campaigns</h1>
+      <div class="sub">Create and manage campaigns displayed on your website.</div>
+    </div>
+    <button class="btn primary" id="addCampaign">+ Add Campaign</button>
+  </div>
+
+  <section class="panel" id="editor">
+    <h2 id="formTitle">Add Campaign</h2>
+    <form id="campaignForm">
+      <input type="hidden" id="campaignId">
+
+      <div class="form-grid">
+        <div class="field full">
+          <label for="title">Campaign title *</label>
+          <input id="title" required maxlength="180">
+        </div>
+
+        <div class="field full">
+          <label for="description">Description</label>
+          <textarea id="description"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="ctaText">Button text</label>
+          <input id="ctaText" placeholder="Enquire Now">
+        </div>
+
+        <div class="field">
+          <label for="ctaUrl">Button destination URL</label>
+          <input id="ctaUrl" type="url" placeholder="https://example.com">
+        </div>
+
+        <div class="field">
+          <label for="sortOrder">Display order</label>
+          <input id="sortOrder" type="number" value="0">
+        </div>
+
+        <div class="field">
+          <label for="campaignImage">Campaign image</label>
+          <input id="campaignImage" type="file" accept="image/*">
+        </div>
+
+        <div class="field full">
+          <img id="preview" alt="Campaign image preview">
+          <label class="check">
+            <input id="published" type="checkbox">
+            Publish this campaign on the website
+          </label>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" type="submit" id="saveButton">Save Campaign</button>
+        <button class="btn secondary" type="button" id="cancelEdit">Cancel</button>
+      </div>
+      <p class="message" id="formMessage"></p>
+    </form>
+  </section>
+
+  <section>
+    <div class="top">
+      <div>
+        <h2>All Campaigns</h2>
+        <div class="sub">Published and unpublished campaigns.</div>
+      </div>
+      <button class="btn secondary" id="refresh">Refresh</button>
+    </div>
+    <div class="campaigns" id="campaignList">
+      <div class="empty">Loading campaigns...</div>
+    </div>
+  </section>
+</main>
+
+<script type="module">
+import { supabase } from "../js/supabase.js";
+
+const $ = id => document.getElementById(id);
+const BUCKET = "portfolio-images";
+
+let user = null;
+let role = null;
+let campaigns = [];
+
+function escapeHTML(value = "") {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  })[char]);
+}
+
+function message(text, type = "error") {
+  $("formMessage").textContent = text;
+  $("formMessage").className = "message " + type;
+}
+
+function validURL(value) {
+  if (!value) return true;
+  try {
+    const u = new URL(value);
+    return ["http:", "https:"].includes(u.protocol);
+  } catch {
+    return false;
+  }
+}
+
+function showEditor() {
+  $("editor").classList.add("open");
+  $("editor").scrollIntoView({behavior:"smooth"});
+}
+
+function resetForm() {
+  $("campaignForm").reset();
+  $("campaignId").value = "";
+  $("sortOrder").value = 0;
+  $("published").checked = true;
+  $("preview").style.display = "none";
+  $("preview").src = "";
+  $("formTitle").textContent = "Add Campaign";
+  $("saveButton").textContent = "Save Campaign";
+  message("");
+}
+
+function closeEditor() {
+  $("editor").classList.remove("open");
+  resetForm();
+}
+
+async function uploadImage(file) {
+  if (!file) return null;
+  if (!file.type.startsWith("image/")) {
+    throw new Error("Please select a valid image.");
+  }
+
+  const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "-");
+  const path = `advertising/${Date.now()}-${crypto.randomUUID()}-${safeName}`;
+
+  const { error } = await supabase.storage
+    .from(BUCKET)
+    .upload(path, file, {
+      cacheControl:"3600",
+      upsert:false
+    });
+
+  if (error) throw error;
+
+  return supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
+}
+
+async function deleteImage(url) {
+  if (!url) return;
+
+  const marker = `/${BUCKET}/`;
+  const position = url.indexOf(marker);
+  if (position < 0) return;
+
+  const path = decodeURIComponent(url.slice(position + marker.length));
+
+  const { error } = await supabase.storage.from(BUCKET).remove([path]);
+  if (error) console.warn("Image removal:", error.message);
+}
+
+async function loadCampaigns() {
+  $("campaignList").innerHTML = '<div class="empty">Loading campaigns...</div>';
+
+  const { data, error } = await supabase
+    .from("advertising_campaigns")
+    .select("*")
+    .order("sort_order", {ascending:true})
+    .order("created_at", {ascending:false});
+
+  if (error) {
+    $("campaignList").innerHTML =
+      `<div class="empty">${escapeHTML(error.message)}</div>`;
+    return;
+  }
+
+  campaigns = data || [];
+  renderCampaigns();
+}
+
+function renderCampaigns() {
+  if (!campaigns.length) {
+    $("campaignList").innerHTML =
+      '<div class="empty">No campaigns yet. Click Add Campaign to create your first one.</div>';
+    return;
+  }
+
+  $("campaignList").innerHTML = campaigns.map(c => `
+    <article class="campaign">
+      ${c.image_url
+        ? `<img src="${escapeHTML(c.image_url)}" alt="${escapeHTML(c.title)}">`
+        : ""}
+      <div class="campaign-body">
+        <h3>${escapeHTML(c.title)}</h3>
+        <p>${escapeHTML(c.description || "No description provided.")}</p>
+        <span class="status ${c.is_published ? "" : "off"}">
+          ${c.is_published ? "PUBLISHED" : "UNPUBLISHED"}
+        </span>
+        <p>Display order: ${Number(c.sort_order) || 0}</p>
+        <div class="card-actions">
+          <button class="btn secondary" data-edit="${c.id}">Edit</button>
+          <button class="btn secondary" data-toggle="${c.id}">
+            ${c.is_published ? "Unpublish" : "Publish"}
+          </button>
+          ${role === "admin"
+            ? `<button class="btn danger" data-delete="${c.id}">Delete</button>`
+            : ""}
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+$("addCampaign").addEventListener("click", () => {
+  resetForm();
+  showEditor();
+});
+
+$("cancelEdit").addEventListener("click", closeEditor);
+$("refresh").addEventListener("click", loadCampaigns);
+
+$("campaignImage").addEventListener("change", () => {
+  const file = $("campaignImage").files[0];
+  if (!file) return;
+
+  $("preview").src = URL.createObjectURL(file);
+  $("preview").style.display = "block";
+});
+
+$("campaignForm").addEventListener("submit", async event => {
+  event.preventDefault();
+
+  if (role === "viewer") {
+    return message("Your account has view-only access.");
+  }
+
+  const button = $("saveButton");
+  button.disabled = true;
+  button.textContent = "Saving...";
+
+  let uploadedImage = null;
+
+  try {
+    const id = $("campaignId").value;
+    const old = campaigns.find(c => c.id === id);
+    const file = $("campaignImage").files[0];
+
+    const title = $("title").value.trim();
+    const ctaURL = $("ctaUrl").value.trim();
+
+    if (!title) throw new Error("Campaign title is required.");
+    if (!validURL(ctaURL)) throw new Error("Enter a valid HTTP or HTTPS button URL.");
+
+    let imageURL = old?.image_url || null;
+
+    if (file) {
+      uploadedImage = await uploadImage(file);
+      imageURL = uploadedImage;
+    }
+
+    const payload = {
+      title,
+      description:$("description").value.trim(),
+      image_url:imageURL,
+      cta_text:$("ctaText").value.trim() || "Learn More",
+      cta_url:ctaURL || null,
+      is_published:$("published").checked,
+      sort_order:Number($("sortOrder").value) || 0,
+      updated_at:new Date().toISOString()
+    };
+
+    const result = id
+      ? await supabase.from("advertising_campaigns").update(payload).eq("id",id)
+      : await supabase.from("advertising_campaigns").insert(payload);
+
+    if (result.error) throw result.error;
+
+    if (file && old?.image_url) await deleteImage(old.image_url);
+
+    closeEditor();
+    await loadCampaigns();
+  } catch (error) {
+    if (uploadedImage) await deleteImage(uploadedImage);
+    message(error.message);
+  } finally {
+    button.disabled = false;
+    button.textContent = "Save Campaign";
+  }
+});
+
+$("campaignList").addEventListener("click", async event => {
+  const edit = event.target.closest("[data-edit]");
+  const toggle = event.target.closest("[data-toggle]");
+  const remove = event.target.closest("[data-delete]");
+
+  if (edit) {
+    const c = campaigns.find(x => x.id === edit.dataset.edit);
+    if (!c) return;
+
+    resetForm();
+    $("campaignId").value = c.id;
+    $("title").value = c.title;
+    $("description").value = c.description || "";
+    $("ctaText").value = c.cta_text || "";
+    $("ctaUrl").value = c.cta_url || "";
+    $("sortOrder").value = c.sort_order || 0;
+    $("published").checked = c.is_published;
+
+    if (c.image_url) {
+      $("preview").src = c.image_url;
+      $("preview").style.display = "block";
+    }
+
+    $("formTitle").textContent = "Edit Campaign";
+    $("saveButton").textContent = "Update Campaign";
+    showEditor();
+  }
+
+  if (toggle) {
+    const c = campaigns.find(x => x.id === toggle.dataset.toggle);
+    if (!c || role === "viewer") return;
+
+    const {error} = await supabase
+      .from("advertising_campaigns")
+      .update({
+        is_published:!c.is_published,
+        updated_at:new Date().toISOString()
+      })
+      .eq("id",c.id);
+
+    if (error) alert(error.message);
+    else await loadCampaigns();
+  }
+
+  if (remove) {
+    if (role !== "admin") return alert("Admin permission required.");
+
+    const c = campaigns.find(x => x.id === remove.dataset.delete);
+    if (!c || !confirm(`Delete "${c.title}" permanently?`)) return;
+
+    const {error} = await supabase
+      .from("advertising_campaigns")
+      .delete()
+      .eq("id",c.id);
+
+    if (error) return alert(error.message);
+
+    await deleteImage(c.image_url);
+    await loadCampaigns();
+  }
+});
+
+async function initialise() {
+  const {data:{session}, error} = await supabase.auth.getSession();
+
+  if (error) throw error;
+
+  if (!session) {
+    location.replace("index.html");
+    return;
+  }
+
+  user = session.user;
+
+  const {data:profile, error:profileError} = await supabase
+    .from("profiles")
+    .select("id,full_name,role")
+    .eq("id",user.id)
+    .single();
+
+  if (profileError) throw profileError;
+
+  role = profile.role;
+
+  if (!["admin","editor","viewer"].includes(role)) {
+    await supabase.auth.signOut();
+    location.replace("index.html");
+    return;
+  }
+
+  if (role === "viewer") {
+    $("addCampaign").hidden = true;
+  }
+
+  await loadCampaigns();
+}
+
+initialise().catch(error => {
+  console.error(error);
+  $("campaignList").innerHTML =
+    `<div class="empty">Could not load manager: ${escapeHTML(error.message)}</div>`;
+});
+</script>
+</body>
+</html>

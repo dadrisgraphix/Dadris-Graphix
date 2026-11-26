@@ -1,0 +1,981 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Our Portfolio | Graphic Design, Printing & Branding Projects | Dadris Graphix</title>
+  <meta name="description" content="Explore the Dadris Graphix portfolio featuring graphic design, printing, business branding, signage, outdoor advertising, vehicle branding, apparel and campaign materials in Kenya.">
+  <meta name="author" content="Dadris Graphix Printing & Signs">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#168447">
+  <link rel="canonical" href="https://dadrisgraphix.co.ke/portfolio.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Our Creative Portfolio | Dadris Graphix">
+  <meta property="og:description" content="See our creative work in graphic design, printing, branding, signage and campaign materials.">
+  <meta property="og:url" content="https://dadrisgraphix.co.ke/portfolio.html">
+  <meta property="og:image" content="https://dadrisgraphix.co.ke/images/social-preview.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Dadris Graphix Portfolio",
+    "description": "A collection of graphic design, printing, branding, signage, outdoor advertising, apparel and campaign projects by Dadris Graphix.",
+    "url": "https://dadrisgraphix.co.ke/portfolio.html",
+    "about": {
+      "@type": "ProfessionalService",
+      "name": "Dadris Graphix Printing & Signs",
+      "url": "https://dadrisgraphix.co.ke/"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --green:#168447;
+      --dark-green:#0b5930;
+      --red:#e63936;
+      --orange:#f28c28;
+      --dark:#18251e;
+      --text:#59645e;
+      --light:#f5f8f5;
+      --white:#fff;
+    }
+
+    * {margin:0;padding:0;box-sizing:border-box}
+    html {scroll-behavior:smooth}
+    body {font-family:Arial,Helvetica,sans-serif;color:var(--dark);line-height:1.7}
+    a {text-decoration:none;color:inherit}
+    img {display:block;max-width:100%}
+    button {font:inherit}
+    .container {width:min(1160px,92%);margin:auto}
+
+    /* HEADER */
+    header {
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:#fff;
+      box-shadow:0 3px 18px rgba(0,0,0,.06);
+    }
+
+    .navbar {
+      min-height:82px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-shrink:0;
+    }
+
+    .brand img {width:58px;height:58px;object-fit:contain}
+
+    .brand-name {
+      font-size:21px;
+      font-weight:900;
+      letter-spacing:-.8px;
+      line-height:1.2;
+    }
+
+    .brand-name small {
+      display:block;
+      font-size:9px;
+      letter-spacing:2px;
+      color:var(--red);
+      font-weight:700;
+      margin-top:4px;
+    }
+
+    .nav-links {
+      display:flex;
+      align-items:center;
+      gap:23px;
+      list-style:none;
+    }
+
+    .nav-links a {
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {color:var(--green)}
+
+    .nav-links .nav-contact {
+      background:var(--green);
+      color:white;
+      padding:12px 19px;
+      border-radius:5px;
+    }
+
+    .menu-toggle {
+      display:none;
+      border:0;
+      background:var(--green);
+      color:white;
+      width:44px;
+      height:42px;
+      border-radius:5px;
+      font-size:25px;
+      cursor:pointer;
+    }
+
+    /* HERO */
+    .hero {
+      background:var(--dark-green);
+      color:white;
+      padding:85px 0;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero:after {
+      content:"";
+      position:absolute;
+      width:450px;
+      height:450px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:50%;
+      right:-100px;
+      top:-180px;
+    }
+
+    .hero-content {position:relative;z-index:1;max-width:780px}
+
+    .eyebrow {
+      color:var(--orange);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:3px;
+      margin-bottom:15px;
+    }
+
+    .hero h1 {
+      font-size:clamp(38px,6vw,65px);
+      line-height:1.1;
+      letter-spacing:-2px;
+      margin-bottom:20px;
+    }
+
+    .hero h1 span {color:var(--orange)}
+
+    .hero p {
+      color:rgba(255,255,255,.86);
+      font-size:17px;
+      max-width:680px;
+    }
+
+    .hero-line {
+      width:65px;
+      height:5px;
+      background:var(--red);
+      margin-top:28px;
+      border-radius:10px;
+    }
+
+    /* PORTFOLIO */
+    .portfolio-section {padding:75px 0 85px}
+
+    .section-heading {
+      max-width:720px;
+      margin:0 auto 35px;
+      text-align:center;
+    }
+
+    .section-label {
+      color:var(--green);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:3px;
+      margin-bottom:12px;
+    }
+
+    .section-heading h2 {
+      font-size:clamp(28px,4vw,42px);
+      line-height:1.2;
+      margin-bottom:14px;
+      letter-spacing:-1px;
+    }
+
+    .section-heading p {
+      color:var(--text);
+      font-size:15px;
+    }
+
+    /* FILTER BUTTONS */
+    .filters {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      margin-bottom:35px;
+    }
+
+    .filter-btn {
+      border:1px solid #dce5dd;
+      background:#fff;
+      color:var(--dark);
+      padding:10px 18px;
+      border-radius:30px;
+      font-size:13px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background:var(--green);
+      border-color:var(--green);
+      color:#fff;
+    }
+
+    .filter-btn:focus-visible,
+    .project-image:focus-visible {
+      outline:3px solid var(--orange);
+      outline-offset:3px;
+    }
+
+    .portfolio-count {
+      text-align:center;
+      font-size:12px;
+      color:var(--text);
+      margin-bottom:20px;
+    }
+
+    /* PROJECT GRID */
+    .portfolio-grid {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:20px;
+    }
+
+    .project-card {
+      border-radius:9px;
+      overflow:hidden;
+      background:white;
+      border:1px solid #edf0ed;
+      min-width:0;
+      animation:appear .35s ease;
+    }
+
+    @keyframes appear {
+      from {opacity:0;transform:translateY(10px)}
+      to {opacity:1;transform:translateY(0)}
+    }
+
+    .project-card[hidden] {display:none}
+
+    .project-image {
+      display:block;
+      width:100%;
+      border:0;
+      padding:0;
+      height:230px;
+      background:#eef3ef;
+      overflow:hidden;
+      cursor:zoom-in;
+    }
+
+    .project-image img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .4s;
+    }
+
+    .project-card:hover .project-image img {transform:scale(1.06)}
+
+    .project-info {padding:16px}
+
+    .project-category {
+      color:var(--green);
+      text-transform:uppercase;
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:1.2px;
+      margin-bottom:6px;
+    }
+
+    .project-info h3 {
+      font-size:15px;
+      line-height:1.4;
+      margin-bottom:5px;
+    }
+
+    .project-info p {
+      color:var(--text);
+      font-size:12px;
+      line-height:1.5;
+    }
+
+    /* IMAGE VIEWER */
+    .lightbox {
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:2000;
+      background:rgba(0,0,0,.92);
+      padding:25px;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .lightbox.open {display:flex}
+
+    .lightbox-content {
+      max-width:1000px;
+      width:100%;
+      max-height:90vh;
+      text-align:center;
+    }
+
+    .lightbox img {
+      max-width:100%;
+      max-height:78vh;
+      width:auto;
+      height:auto;
+      margin:auto;
+      object-fit:contain;
+      border-radius:5px;
+    }
+
+    .lightbox-caption {
+      color:white;
+      margin-top:12px;
+      font-size:14px;
+    }
+
+    .lightbox-close {
+      position:absolute;
+      top:18px;
+      right:24px;
+      border:0;
+      color:white;
+      background:transparent;
+      font-size:38px;
+      cursor:pointer;
+    }
+
+    /* CTA */
+    .cta {
+      background:var(--dark-green);
+      color:white;
+      text-align:center;
+      padding:75px 20px;
+    }
+
+    .cta h2 {
+      font-size:clamp(28px,4vw,42px);
+      line-height:1.2;
+      margin-bottom:15px;
+    }
+
+    .cta p {
+      max-width:650px;
+      margin:0 auto 25px;
+      color:rgba(255,255,255,.85);
+    }
+
+    .cta-button {
+      display:inline-block;
+      background:var(--orange);
+      color:#18251e;
+      padding:14px 27px;
+      border-radius:5px;
+      font-weight:800;
+    }
+
+    /* FOOTER */
+    footer {
+      background:#111b15;
+      color:white;
+      padding:50px 0 20px;
+    }
+
+    .footer-grid {
+      display:grid;
+      grid-template-columns:1.4fr 1fr 1fr;
+      gap:35px;
+      padding-bottom:30px;
+    }
+
+    .footer-about p {
+      color:#b7c1ba;
+      font-size:13px;
+      max-width:350px;
+      margin-top:14px;
+    }
+
+    footer h3 {font-size:15px;margin-bottom:15px}
+    footer ul {list-style:none}
+    footer li {margin-bottom:9px;color:#b7c1ba;font-size:13px}
+    footer a:hover {color:var(--orange)}
+
+    .footer-bottom {
+      border-top:1px solid rgba(255,255,255,.12);
+      padding-top:18px;
+      text-align:center;
+      color:#aeb9b1;
+      font-size:12px;
+    }
+
+    .whatsapp {
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      z-index:900;
+      background:#20bd5a;
+      color:white;
+      padding:13px 19px;
+      border-radius:50px;
+      font-size:13px;
+      font-weight:800;
+      box-shadow:0 5px 20px rgba(0,0,0,.2);
+    }
+
+    /* TABLET */
+    @media(max-width:900px) {
+      .menu-toggle {display:block}
+
+      .nav-links {
+        display:none;
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        background:white;
+        padding:18px 4% 22px;
+        box-shadow:0 12px 18px rgba(0,0,0,.08);
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+      }
+
+      .nav-links.active {display:flex}
+      .nav-links li {width:100%}
+      .nav-links a {display:block;padding:12px 8px}
+      .nav-links .nav-contact {text-align:center;margin-top:8px}
+
+      .portfolio-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+      .project-image {height:210px}
+      .footer-grid {grid-template-columns:1fr 1fr}
+    }
+
+    /* MOBILE */
+    @media(max-width:600px) {
+      .navbar {min-height:74px}
+      .brand img {width:49px;height:49px}
+      .brand-name {font-size:18px}
+
+      .hero {padding:68px 0}
+      .hero h1 {letter-spacing:-1px}
+      .hero p {font-size:15px}
+
+      .portfolio-section {padding:55px 0}
+      .filters {gap:8px;margin-bottom:25px}
+      .filter-btn {padding:9px 13px;font-size:11px}
+      .portfolio-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+      .project-image {height:155px}
+      .project-info {padding:12px}
+      .project-info h3 {font-size:13px}
+      .project-info p {font-size:11px}
+      .project-category {font-size:9px}
+
+      .footer-grid {grid-template-columns:1fr 1fr;gap:22px}
+      .footer-about {grid-column:1/-1}
+      .whatsapp {right:13px;bottom:13px}
+    }
+
+    @media(max-width:360px) {
+      .project-image {height:130px}
+      .filter-btn {padding:8px 10px;font-size:10px}
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      *,*::before,*::after {
+        scroll-behavior:auto!important;
+        animation-duration:.01ms!important;
+        transition-duration:.01ms!important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a href="index.html" class="brand" aria-label="Dadris Graphix home">
+      <img src="images/logo.png" alt="Dadris Graphix logo">
+      <div class="brand-name">
+        DADRIS GRAPHIX
+        <small>PRINTING &amp; SIGNS</small>
+      </div>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      type="button" aria-label="Open navigation"
+      aria-expanded="false" aria-controls="navLinks">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html" class="active" aria-current="page">Our Work</a></li>
+      <li><a href="advertising.html">Advertising</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="https://wa.me/254745365756" class="nav-contact">Get a Quote</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="eyebrow">Our Creative Work</div>
+      <h1>Ideas Made Visible.<br><span>Work That Speaks.</span></h1>
+      <p>Explore selected creative projects by Dadris Graphix, from graphic design and printing to branding, signage, outdoor advertising and campaign materials.</p>
+      <div class="hero-line"></div>
+    </div>
+  </section>
+
+  <section class="portfolio-section" id="portfolio">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-label">Our Portfolio</div>
+        <h2>A Look at What We Create</h2>
+        <p>Every project tells a story. Browse our work by category and discover how we turn ideas into visual experiences.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter portfolio by category">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">All Projects</button>
+        <button class="filter-btn" data-filter="graphic-design" aria-pressed="false">Graphic Design</button>
+        <button class="filter-btn" data-filter="printing" aria-pressed="false">Printing</button>
+        <button class="filter-btn" data-filter="branding" aria-pressed="false">Branding</button>
+        <button class="filter-btn" data-filter="signage" aria-pressed="false">Signage</button>
+        <button class="filter-btn" data-filter="outdoor" aria-pressed="false">Outdoor Ads</button>
+        <button class="filter-btn" data-filter="vehicle" aria-pressed="false">Vehicle Branding</button>
+        <button class="filter-btn" data-filter="apparel" aria-pressed="false">Apparel</button>
+        <button class="filter-btn" data-filter="campaign" aria-pressed="false">Campaign Materials</button>
+      </div>
+
+      <p class="portfolio-count" id="portfolioCount" aria-live="polite">Showing all projects</p>
+
+      <div class="portfolio-grid" id="portfolioGrid">
+
+        <!-- GRAPHIC DESIGN: 4 IMAGES -->
+        <article class="project-card" data-category="graphic-design">
+          <button class="project-image" type="button" data-full="images/poster-1.jpeg" data-caption="Promotional Poster Design">
+            <img src="images/poster-1.jpeg" alt="Promotional poster graphic design by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Graphic Design</div><h3>Promotional Poster Design</h3><p>Creative promotional communication.</p></div>
+        </article>
+
+        <article class="project-card" data-category="graphic-design">
+          <button class="project-image" type="button" data-full="images/design-2.jpeg" data-caption="Business Flyer Design">
+            <img src="images/design-2.jpg" alt="Business flyer design project by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Graphic Design</div><h3>Business Flyer Design</h3><p>Marketing materials for businesses.</p></div>
+        </article>
+
+        <article class="project-card" data-category="graphic-design">
+          <button class="project-image" type="button" data-full="images/design-3.jpeg" data-caption="Event Poster Design">
+            <img src="images/design-3.jpg" alt="Event poster artwork by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Graphic Design</div><h3>Event Poster Design</h3><p>Visuals designed to attract attention.</p></div>
+        </article>
+
+        <article class="project-card" data-category="graphic-design">
+          <button class="project-image" type="button" data-full="images/design-4.jpeg" data-caption="Creative Social Media Artwork">
+            <img src="images/design-4.jpg" alt="Social media graphic design artwork by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Graphic Design</div><h3>Social Media Artwork</h3><p>Digital graphics for brand communication.</p></div>
+        </article>
+
+        <!-- PRINTING: 4 IMAGES -->
+        <article class="project-card" data-category="printing">
+          <button class="project-image" type="button" data-full="images/printing.jpeg" data-caption="Professional Printing">
+            <img src="images/konica.jpg" alt="Professional printing services by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Printing</div><h3>Print Production</h3><p>Quality printed materials.</p></div>
+        </article>
+
+        <article class="project-card" data-category="printing">
+          <button class="project-image" type="button" data-full="images/printing-work.jpeg" data-caption="Printed Marketing Materials">
+            <img src="images/printing.jpeg" alt="Printed marketing materials produced by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Printing</div><h3>Marketing Materials</h3><p>Printed materials for promotion.</p></div>
+        </article>
+
+        <article class="project-card" data-category="printing">
+          <button class="project-image" type="button" data-full="images/print-3.jpeg" data-caption="Large Format Printing">
+            <img src="images/print-3.jpg" alt="Large format printing project by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Printing</div><h3>Large Format Printing</h3><p>Prints designed for visibility.</p></div>
+        </article>
+
+        <article class="project-card" data-category="printing">
+          <button class="project-image" type="button" data-full="images/print-4.jpeg" data-caption="Business Stationery Printing">
+            <img src="images/business cards.jpg" alt="Business stationery printing project by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Printing</div><h3>Business Stationery</h3><p>Professional printed business materials.</p></div>
+        </article>
+
+        <!-- BRANDING: 4 IMAGES -->
+        <article class="project-card" data-category="branding">
+          <button class="project-image" type="button" data-full="images/branding.jpeg" data-caption="Business Branding">
+            <img src="images/branding.jpeg" alt="Business branding project by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Branding</div><h3>Business Identity</h3><p>Visual identity and brand presentation.</p></div>
+        </article>
+
+        <article class="project-card" data-category="branding">
+          <button class="project-image" type="button" data-full="images/brand-2.jpeg" data-caption="Logo and Brand Identity">
+            <img src="images/brand.jpg" alt="Logo and brand identity design by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Branding</div><h3>Logo &amp; Identity</h3><p>Distinctive brand identity concepts.</p></div>
+        </article>
+
+        <article class="project-card" data-category="branding">
+          <button class="project-image" type="button" data-full="images/brand-3.jpeg" data-caption="Corporate Branding">
+            <img src="images/brand-2.jpg" alt="Corporate branding design by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Branding</div><h3>Corporate Branding</h3><p>Consistent business brand visuals.</p></div>
+        </article>
+
+        <article class="project-card" data-category="branding">
+          <button class="project-image" type="button" data-full="images/brand-4.jpeg" data-caption="Promotional Brand Design">
+            <img src="images/brand-3.jpg" alt="Promotional brand design by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Branding</div><h3>Promotional Branding</h3><p>Branding for customer engagement.</p></div>
+        </article>
+
+        <!-- SIGNAGE: 4 IMAGES -->
+        <article class="project-card" data-category="signage">
+          <button class="project-image" type="button" data-full="images/signage-1.jpeg" data-caption="Business Signage">
+            <img src="images/signage-1.jpeg" alt="Business signage project by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Signage</div><h3>Business Signage</h3><p>Signage for business visibility.</p></div>
+        </article>
+
+        <article class="project-card" data-category="signage">
+          <button class="project-image" type="button" data-full="images/signage-2.jpeg" data-caption="Shop Front Signage">
+            <img src="images/brandie.jpeg" alt="Shop front sign fabrication and installation" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Signage</div><h3>Shop Front Signs</h3><p>Signs that help customers find you.</p></div>
+        </article>
+
+        <article class="project-card" data-category="signage">
+          <button class="project-image" type="button" data-full="images/signage-3.jpeg" data-caption="Fabricated Signage">
+            <img src="images/signage-2.jpg" alt="Fabricated signage project by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Signage</div><h3>Fabricated Signs</h3><p>Physical signs built for visibility.</p></div>
+        </article>
+
+        <article class="project-card" data-category="signage">
+          <button class="project-image" type="button" data-full="images/signage-4.jpeg" data-caption="Indoor and Directional Signage">
+            <img src="images/indoor.jpg" alt="Indoor directional signage project" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Signage</div><h3>Indoor Signage</h3><p>Clear visual guidance and identification.</p></div>
+        </article>
+
+        <!-- OUTDOOR ADVERTISING: 4 IMAGES -->
+        <article class="project-card" data-category="outdoor">
+          <button class="project-image" type="button" data-full="images/billboard.jpeg" data-caption="Outdoor Billboard Advertising">
+            <img src="images/billboard.jpeg" alt="Outdoor billboard advertising by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Outdoor Advertising</div><h3>Billboard Advertising</h3><p>Large-scale brand visibility.</p></div>
+        </article>
+
+        <article class="project-card" data-category="outdoor">
+          <button class="project-image" type="button" data-full="images/streetpole.jpeg" data-caption="Street Pole Advertising">
+            <img src="images/streetpole.jpeg" alt="Street pole advertising display in Kenya" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Outdoor Advertising</div><h3>Street Pole Advertising</h3><p>Promotional visibility along busy routes.</p></div>
+        </article>
+
+        <article class="project-card" data-category="outdoor">
+          <button class="project-image" type="button" data-full="images/outdoor-3.jpeg" data-caption="Outdoor Promotional Display">
+            <img src="images/outdoor.jpg" alt="Outdoor promotional advertising display" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Outdoor Advertising</div><h3>Promotional Displays</h3><p>Outdoor brand communication.</p></div>
+        </article>
+
+        <article class="project-card" data-category="outdoor">
+          <button class="project-image" type="button" data-full="images/outdoor-4.jpeg" data-caption="Outdoor Campaign Display">
+            <img src="images/campaign.jpg" alt="Outdoor campaign advertising display" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Outdoor Advertising</div><h3>Outdoor Campaigns</h3><p>Advertising designed for public spaces.</p></div>
+        </article>
+
+        <!-- VEHICLE BRANDING: 4 IMAGES -->
+        <article class="project-card" data-category="vehicle">
+          <button class="project-image" type="button" data-full="images/vehicle-1.jpeg" data-caption="Vehicle Branding">
+            <img src="images/vehicle-1.jpeg" alt="Vehicle branding project by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Vehicle Branding</div><h3>Vehicle Graphics</h3><p>Mobile business advertising.</p></div>
+        </article>
+
+        <article class="project-card" data-category="vehicle">
+          <button class="project-image" type="button" data-full="images/vehicle-2.jpeg" data-caption="Commercial Vehicle Graphics">
+            <img src="images/vehicle-2.jpeg" alt="Commercial vehicle graphics and branding" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Vehicle Branding</div><h3>Commercial Vehicle Graphics</h3><p>Brand visibility on the move.</p></div>
+        </article>
+
+        <article class="project-card" data-category="vehicle">
+          <button class="project-image" type="button" data-full="images/vehicle-3.jpeg" data-caption="Car Branding">
+            <img src="images/vehicle-3.jpeg" alt="Car branding and vehicle graphics" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Vehicle Branding</div><h3>Car Branding</h3><p>Promotional graphics for vehicles.</p></div>
+        </article>
+
+        <article class="project-card" data-category="vehicle">
+          <button class="project-image" type="button" data-full="images/vehicle-4.jpeg" data-caption="Fleet Branding">
+            <img src="images/fleet.jpg" alt="Fleet vehicle branding project" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Vehicle Branding</div><h3>Fleet Branding</h3><p>Consistent identity across vehicles.</p></div>
+        </article>
+
+        <!-- APPAREL: 4 IMAGES -->
+        <article class="project-card" data-category="apparel">
+          <button class="project-image" type="button" data-full="images/tshirts.jpeg" data-caption="Branded T-Shirts">
+            <img src="images/tshirts.jpeg" alt="Custom branded T-shirts by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Apparel Branding</div><h3>Branded T-Shirts</h3><p>Custom clothing for brands and events.</p></div>
+        </article>
+
+        <article class="project-card" data-category="apparel">
+          <button class="project-image" type="button" data-full="images/caps.jpeg" data-caption="Custom Branded Caps">
+            <img src="images/caps.jpeg" alt="Custom branded caps and apparel" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Apparel Branding</div><h3>Branded Caps</h3><p>Wearable brand promotion.</p></div>
+        </article>
+
+        <article class="project-card" data-category="apparel">
+          <button class="project-image" type="button" data-full="images/apparel-3.jpeg" data-caption="Branded Workwear">
+            <img src="images/reflectors.jpeg" alt="Branded workwear and uniforms" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Apparel Branding</div><h3>Branded Workwear</h3><p>Uniforms for teams and organisations.</p></div>
+        </article>
+
+        <article class="project-card" data-category="apparel">
+          <button class="project-image" type="button" data-full="images/apparel-4.jpeg" data-caption="Event Apparel">
+            <img src="images/polo.jpeg" alt="Custom event apparel branding" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Apparel Branding</div><h3>Event Apparel</h3><p>Custom apparel for special occasions.</p></div>
+        </article>
+
+        <!-- CAMPAIGN MATERIALS: 4 IMAGES -->
+        <article class="project-card" data-category="campaign">
+          <button class="project-image" type="button" data-full="images/campaign-1.jpeg" data-caption="Campaign Poster Design">
+            <img src="images/vote.png" alt="Campaign poster design and campaign materials by Dadris Graphix" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Campaign Materials</div><h3>Campaign Posters</h3><p>Visual materials for campaign communication.</p></div>
+        </article>
+
+        <article class="project-card" data-category="campaign">
+          <button class="project-image" type="button" data-full="images/campaign-2.jpeg" data-caption="Campaign T-Shirt Design">
+            <img src="images/lmm.jpg" alt="Campaign T-shirt design and printing" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Campaign Materials</div><h3>Campaign T-Shirts</h3><p>Branded apparel for campaign teams.</p></div>
+        </article>
+
+        <article class="project-card" data-category="campaign">
+          <button class="project-image" type="button" data-full="images/campaign-3.jpeg" data-caption="Campaign Banner Design">
+            <img src="images/voice.jpg" alt="Campaign banner and promotional material design" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Campaign Materials</div><h3>Campaign Banners</h3><p>Large-format campaign communication.</p></div>
+        </article>
+
+        <article class="project-card" data-category="campaign">
+          <button class="project-image" type="button" data-full="images/campaign-4.jpeg" data-caption="Campaign Flyers and Handouts">
+            <img src="images/flyers.jpg" alt="Campaign flyers and printed handouts" loading="lazy">
+          </button>
+          <div class="project-info"><div class="project-category">Campaign Materials</div><h3>Campaign Flyers</h3><p>Printed materials for outreach and awareness.</p></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Let's Create Your Next Project.</h2>
+      <p>Have a project in mind? Talk to Dadris Graphix about design, printing, branding, signage or campaign materials.</p>
+      <a class="cta-button" href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20have%20a%20project%20I%20would%20like%20to%20discuss.">
+        Discuss Your Project
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-about">
+        <a href="index.html" class="brand">
+          <img src="images/logo.png" alt="Dadris Graphix logo">
+          <div class="brand-name" style="color:white">
+            DADRIS GRAPHIX
+            <small>PRINTING &amp; SIGNS</small>
+          </div>
+        </a>
+        <p>Creative design, quality printing, branding and signage solutions. Turning ideas into impressions from Kakamega to every corner of Kenya.</p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="portfolio.html">Our Work</a></li>
+          <li><a href="advertising.html">Advertising</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Contact Us</h3>
+        <ul>
+          <li>Ogalo, Kakamega, Kenya</li>
+          <li><a href="tel:+254745365756">0745 365 756</a></li>
+          <li><a href="tel:+254708401714">0708 401 714</a></li>
+          <li><a href="https://wa.me/254745365756">WhatsApp Us</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> Dadris Graphix Printing &amp; Signs. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/254745365756"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Chat with Dadris Graphix on WhatsApp">WhatsApp Us</a>
+
+<!-- IMAGE LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog"
+     aria-modal="true" aria-label="Project image viewer">
+  <button class="lightbox-close" id="lightboxClose"
+          type="button" aria-label="Close image viewer">×</button>
+  <div class="lightbox-content">
+    <img id="lightboxImage" src="" alt="">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+</div>
+
+<script>
+  // MOBILE NAVIGATION
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  menuToggle.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("active");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+    menuToggle.textContent = isOpen ? "×" : "☰";
+  });
+
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation");
+      menuToggle.textContent = "☰";
+    });
+  });
+
+  // PORTFOLIO FILTERS
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const projectCards = document.querySelectorAll(".project-card");
+  const portfolioCount = document.getElementById("portfolioCount");
+
+  function filterProjects(category) {
+    let visible = 0;
+
+    projectCards.forEach(card => {
+      const matches = category === "all" || card.dataset.category === category;
+      card.hidden = !matches;
+      if (matches) visible++;
+    });
+
+    portfolioCount.textContent = category === "all"
+      ? `Showing all ${visible} projects`
+      : `Showing ${visible} projects in this category`;
+  }
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      filterButtons.forEach(item => {
+        item.classList.remove("active");
+        item.setAttribute("aria-pressed", "false");
+      });
+
+      button.classList.add("active");
+      button.setAttribute("aria-pressed", "true");
+      filterProjects(button.dataset.filter);
+    });
+  });
+
+  // IMAGE LIGHTBOX
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+  const lightboxCaption = document.getElementById("lightboxCaption");
+  const lightboxClose = document.getElementById("lightboxClose");
+  let previousFocus = null;
+
+  document.querySelectorAll(".project-image").forEach(button => {
+    button.addEventListener("click", () => {
+      previousFocus = button;
+      lightboxImage.src = button.dataset.full;
+      lightboxImage.alt = button.dataset.caption;
+      lightboxCaption.textContent = button.dataset.caption;
+      lightbox.classList.add("open");
+      lightboxClose.focus();
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightboxImage.src = "";
+    if (previousFocus) previousFocus.focus();
+  }
+
+  lightboxClose.addEventListener("click", closeLightbox);
+
+  lightbox.addEventListener("click", event => {
+    if (event.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && lightbox.classList.contains("open")) {
+      closeLightbox();
+    }
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<script type="module" src="js/public-content.js"></script>
+
+</body>
+</html>
