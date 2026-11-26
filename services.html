@@ -1,39 +1,77 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Our Services | Graphic Design, Printing & Signs in Kakamega | Dadris Graphix</title>
-  <meta name="description" content="Explore Dadris Graphix services including graphic design, printing, business branding, signage, outdoor advertising, fabrication and web design in Kakamega, Kenya.">
-  <meta name="keywords" content="graphic design Kakamega, printing services Kenya, branding services Kakamega, signage Kenya, outdoor advertising, web design Kenya, Dadris Graphix">
+  <title>Graphic Design, Printing & Branding Services in Matungu, Kakamega | Dadris Graphix</title>
+  <meta name="description" content="Looking for graphic design, printing, branding, signage or advertising in Matungu, Kakamega? Dadris Graphix delivers creative solutions for businesses across Kenya.">
   <meta name="author" content="Dadris Graphix Printing & Signs">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#168447">
-  <link rel="canonical" href="https://dadrisgraphix.co.ke/services.html">
+
+  <link rel="canonical" href="https://www.dadrisgraphix.co.ke/services.html">
 
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dadris Graphix Printing & Signs">
   <meta property="og:title" content="Our Services | Dadris Graphix Printing & Signs">
-  <meta property="og:description" content="Creative design, quality printing, branding, signage and advertising solutions in Kakamega and across Kenya.">
-  <meta property="og:url" content="https://dadrisgraphix.co.ke/services.html">
-  <meta property="og:image" content="https://dadrisgraphix.co.ke/images/social-preview.jpg">
+  <meta property="og:description" content="Professional graphic design, printing, business branding, signage and advertising in Matungu, Kakamega. Serving customers across Kenya.">
+  <meta property="og:url" content="https://www.dadrisgraphix.co.ke/services.html">
+  <meta property="og:image" content="https://www.dadrisgraphix.co.ke/images/hero.png">
+  <meta property="og:locale" content="en_KE">
+
   <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="twitter:title" content="Graphic Design, Printing & Branding | Dadris Graphix">
+  <meta name="twitter:description" content="Explore professional design, printing, branding and signage services in Matungu, Kakamega and across Kenya.">
+  <meta name="twitter:image" content="https://www.dadrisgraphix.co.ke/images/hero.png">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- SERVICES STRUCTURED DATA -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Dadris Graphix Services",
-    "itemListElement": [
-      {"@type":"ListItem","position":1,"name":"Graphic Design"},
-      {"@type":"ListItem","position":2,"name":"Printing Services"},
-      {"@type":"ListItem","position":3,"name":"Business Branding"},
-      {"@type":"ListItem","position":4,"name":"Signage and Fabrication"},
-      {"@type":"ListItem","position":5,"name":"Outdoor Advertising"},
-      {"@type":"ListItem","position":6,"name":"Web Design"}
+    "@graph": [
+      {
+        "@type": "ItemList",
+        "@id": "https://www.dadrisgraphix.co.ke/services.html#services",
+        "name": "Dadris Graphix Services",
+        "description": "Graphic design, printing, branding, signage and advertising services in Matungu, Kakamega, Kenya.",
+        "url": "https://www.dadrisgraphix.co.ke/services.html",
+        "numberOfItems": 8,
+        "itemListElement": [
+          {"@type":"ListItem","position":1,"name":"Graphic Design"},
+          {"@type":"ListItem","position":2,"name":"Printing Services"},
+          {"@type":"ListItem","position":3,"name":"Business Branding"},
+          {"@type":"ListItem","position":4,"name":"Signage and Fabrication"},
+          {"@type":"ListItem","position":5,"name":"Outdoor Advertising"},
+          {"@type":"ListItem","position":6,"name":"Vehicle Branding"},
+          {"@type":"ListItem","position":7,"name":"Apparel Branding"},
+          {"@type":"ListItem","position":8,"name":"Website Design"}
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.dadrisgraphix.co.ke/services.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.dadrisgraphix.co.ke/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://www.dadrisgraphix.co.ke/services.html"
+          }
+        ]
+      }
     ]
   }
   </script>
@@ -57,7 +95,6 @@
     img {display:block;max-width:100%}
     .container {width:min(1160px,92%);margin:auto}
 
-    /* HEADER */
     header {
       position:sticky;
       top:0;
@@ -136,7 +173,6 @@
       cursor:pointer;
     }
 
-    /* HERO */
     .hero {
       background:var(--dark-green);
       color:white;
@@ -189,7 +225,6 @@
       border-radius:10px;
     }
 
-    /* SECTION INTRO */
     section {padding:78px 0}
 
     .section-heading {
@@ -218,7 +253,6 @@
       font-size:15px;
     }
 
-    /* SERVICES */
     .services-grid {
       display:grid;
       grid-template-columns:repeat(4,minmax(0,1fr));
@@ -277,7 +311,6 @@
 
     .service-link:hover {color:var(--red)}
 
-    /* FEATURE STRIP */
     .feature-section {background:var(--light)}
 
     .feature-grid {
@@ -330,7 +363,6 @@
       margin-right:10px;
     }
 
-    /* WHY US */
     .why-grid {
       display:grid;
       grid-template-columns:repeat(3,minmax(0,1fr));
@@ -353,7 +385,6 @@
       margin-bottom:10px;
     }
 
-    /* CTA */
     .cta {
       background:var(--dark-green);
       color:white;
@@ -384,7 +415,6 @@
 
     .cta-button:hover {background:white}
 
-    /* FOOTER */
     footer {
       background:#111b15;
       color:white;
@@ -432,7 +462,6 @@
       box-shadow:0 5px 20px rgba(0,0,0,.2);
     }
 
-    /* TABLET */
     @media(max-width:900px) {
       .menu-toggle {display:block}
 
@@ -461,7 +490,6 @@
       .footer-grid {grid-template-columns:1fr 1fr}
     }
 
-    /* MOBILE */
     @media(max-width:600px) {
       section {padding:58px 0}
       .navbar {min-height:74px}
@@ -536,7 +564,7 @@
       <li><a href="services.html" class="active" aria-current="page">Services</a></li>
       <li><a href="portfolio.html">Our Work</a></li>
       <li><a href="advertising.html">Advertising</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
       <li><a href="https://wa.me/254745365756" class="nav-contact">Get a Quote</a></li>
     </ul>
 
@@ -547,9 +575,9 @@
 
   <section class="hero">
     <div class="container hero-content">
-      <div class="eyebrow">What We Do</div>
-      <h1>Creative Solutions.<br><span>Visible Results.</span></h1>
-      <p>From eye-catching graphic designs and professional printing to business branding, signage and web design, Dadris Graphix helps you bring your ideas to life.</p>
+      <div class="eyebrow">WHAT WE DO</div>
+      <h1>Graphic Design &amp; Printing in <span>Matungu, Kakamega.</span></h1>
+      <p>From creative graphic design and professional printing to business branding, signage, advertising and website design, Dadris Graphix helps businesses and individuals turn ideas into visible results. Based in Matungu, Kakamega, we serve customers across Kenya.</p>
       <div class="hero-line"></div>
     </div>
   </section>
@@ -558,32 +586,32 @@
     <div class="container">
 
       <div class="section-heading">
-        <div class="section-label">Our Services</div>
-        <h2>Everything Your Brand Needs to Stand Out</h2>
-        <p>We combine creativity, design and practical production to deliver visual solutions for businesses, organisations and individuals in Kakamega and across Kenya.</p>
+        <div class="section-label">OUR SERVICES</div>
+        <h2>Creative Services That Help Your Brand Stand Out</h2>
+        <p>Explore our graphic design, printing, branding, signage and advertising services. We combine creativity, practical production and attention to detail to deliver visual solutions for businesses, organisations and individuals in Matungu, Kakamega and across Kenya.</p>
       </div>
 
       <div class="services-grid">
 
         <article class="service-card">
           <div class="service-image">
-            <img src="images/poster1.jpeg" alt="Creative graphic design and printed marketing materials" loading="lazy">
+            <img src="images/poster1.jpeg" alt="Graphic design work including posters and marketing materials by Dadris Graphix" loading="lazy">
           </div>
           <div class="service-content">
             <h3>Graphic Design</h3>
-            <p>Creative visual designs that help your business communicate professionally and stand out.</p>
-            <a class="service-link" href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20need%20graphic%20design%20services.">Request Design →</a>
+            <p>Professional graphic design for posters, flyers, business cards, invitations, brochures, social media and other marketing materials.</p>
+            <a class="service-link" href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20need%20graphic%20design%20services." target="_blank" rel="noopener">Request Design →</a>
           </div>
         </article>
 
         <article class="service-card">
           <div class="service-image">
-            <img src="images/printing-work.jpeg" alt="Professional printing work and printed materials" loading="lazy">
+            <img src="images/printing-work.jpeg" alt="Professional printing services and printed materials" loading="lazy">
           </div>
           <div class="service-content">
             <h3>Printing Services</h3>
-            <p>Quality printing for business stationery, posters, flyers, banners and promotional materials.</p>
-            <a class="service-link" href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20need%20printing%20services.">Request Printing →</a>
+            <p>Printing for business stationery, posters, flyers, banners, invitations and promotional materials for personal and business use.</p>
+            <a class="service-link" href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20need%20printing%20services." target="_blank" rel="noopener">Request Printing →</a>
           </div>
         </article>
 
@@ -593,8 +621,8 @@
           </div>
           <div class="service-content">
             <h3>Business Branding</h3>
-            <p>Build a recognisable business identity with coordinated branding and promotional designs.</p>
-            <a class="service-link" href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20need%20business%20branding.">Brand My Business →</a>
+            <p>Build a recognisable business identity with logo design, coordinated brand materials and promotional designs.</p>
+            <a class="service-link" href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20need%20business%20branding." target="_blank" rel="noopener">Brand My Business →</a>
           </div>
         </article>
 
@@ -604,8 +632,8 @@
           </div>
           <div class="service-content">
             <h3>Signage &amp; Fabrication</h3>
-            <p>Professional business signs and fabricated visual displays that make your location easy to identify.</p>
-            <a class="service-link" href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20need%20signage%20or%20fabrication.">Request Signage →</a>
+            <p>Business signs and fabricated visual displays that help customers identify your premises and recognise your brand.</p>
+            <a class="service-link" href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20need%20signage%20or%20fabrication." target="_blank" rel="noopener">Request Signage →</a>
           </div>
         </article>
 
@@ -615,19 +643,19 @@
           </div>
           <div class="service-content">
             <h3>Outdoor Advertising</h3>
-            <p>Promote your business through outdoor advertising solutions designed to attract attention.</p>
+            <p>Outdoor advertising solutions that help businesses promote their products, services and messages to wider audiences.</p>
             <a class="service-link" href="advertising.html">Explore Advertising →</a>
           </div>
         </article>
 
         <article class="service-card">
           <div class="service-image">
-            <img src="images/vehicle-3.jpeg" alt="Vehicle graphics and promotional branding" loading="lazy">
+            <img src="images/vehicle-3.jpeg" alt="Vehicle graphics and promotional vehicle branding" loading="lazy">
           </div>
           <div class="service-content">
             <h3>Vehicle Branding</h3>
-            <p>Turn your vehicle into a moving advertisement with professional graphics and branding.</p>
-            <a class="service-link" href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20need%20vehicle%20branding.">Brand My Vehicle →</a>
+            <p>Turn your vehicle into a moving advertisement with professional graphics and business branding.</p>
+            <a class="service-link" href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20need%20vehicle%20branding." target="_blank" rel="noopener">Brand My Vehicle →</a>
           </div>
         </article>
 
@@ -637,19 +665,19 @@
           </div>
           <div class="service-content">
             <h3>Apparel Branding</h3>
-            <p>Custom branded apparel for businesses, teams, events, groups and organisations.</p>
-            <a class="service-link" href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20need%20branded%20apparel.">Request Apparel →</a>
+            <p>Custom branded apparel for businesses, teams, events, groups, institutions and organisations.</p>
+            <a class="service-link" href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20need%20branded%20apparel." target="_blank" rel="noopener">Request Apparel →</a>
           </div>
         </article>
 
         <article class="service-card">
           <div class="service-image">
-            <img src="images/hero.png" alt="Creative digital design and web design services" loading="lazy">
+            <img src="images/hero.png" alt="Website design and digital solutions by Dadris Graphix" loading="lazy">
           </div>
           <div class="service-content">
             <h3>Web Design</h3>
-            <p>Modern websites that help businesses establish an online presence and reach more customers.</p>
-            <a class="service-link" href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20need%20a%20business%20website.">Build My Website →</a>
+            <p>Modern, responsive websites that help businesses establish an online presence and reach more customers.</p>
+            <a class="service-link" href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20need%20a%20business%20website." target="_blank" rel="noopener">Build My Website →</a>
           </div>
         </article>
 
@@ -661,13 +689,13 @@
     <div class="container feature-grid">
 
       <div class="feature-image">
-        <img src="images/streetpole.jpeg" alt="Street pole outdoor advertising installation in Kenya" loading="lazy">
+        <img src="images/streetpole.jpeg" alt="Street pole outdoor advertising installation" loading="lazy">
       </div>
 
       <div class="feature-content">
-        <div class="section-label">Beyond Ordinary Design</div>
+        <div class="section-label">BEYOND ORDINARY DESIGN</div>
         <h2>We Help Your Brand Get Noticed.</h2>
-        <p>Your business deserves to be seen. We create visual communication solutions that help you attract attention, communicate your message and build a professional image.</p>
+        <p>Your business deserves to be seen. We create visual communication solutions that help you attract attention, communicate your message and build a professional image. Whether you are in Matungu, elsewhere in Kakamega or another part of Kenya, we are ready to discuss your project.</p>
 
         <ul class="feature-list">
           <li>Creative and purposeful design</li>
@@ -678,6 +706,8 @@
         </ul>
 
         <a class="service-link" href="about.html">Get to Know Us →</a>
+        <br><br>
+        <a class="service-link" href="portfolio.html">View Our Work →</a>
       </div>
 
     </div>
@@ -687,7 +717,7 @@
     <div class="container">
 
       <div class="section-heading">
-        <div class="section-label">Why Work With Us</div>
+        <div class="section-label">WHY WORK WITH US</div>
         <h2>More Than Just Design</h2>
         <p>We focus on understanding your needs and delivering work that represents your brand with confidence.</p>
       </div>
@@ -727,7 +757,7 @@
         <article class="why-card">
           <div class="why-number">06</div>
           <h3>Local &amp; Nationwide</h3>
-          <p>We are based in Kakamega and serve clients from different parts of Kenya.</p>
+          <p>Based in Matungu, Kakamega, we serve local customers and clients from different parts of Kenya.</p>
         </article>
 
       </div>
@@ -737,10 +767,14 @@
   <section class="cta">
     <div class="container">
       <h2>Let's Create Something That Stands Out.</h2>
-      <p>Have a design, printing, branding or signage project in mind? Talk to our team and let's bring your idea to life.</p>
-      <a class="cta-button" href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20would%20like%20a%20quote%20for%20your%20services.">
+      <p>Have a graphic design, printing, branding, signage or website project in mind? Talk to Dadris Graphix and let's bring your idea to life.</p>
+      <a class="cta-button" href="https://wa.me/254745365756?text=Hello%20Dadris%20Graphix%2C%20I%20would%20like%20a%20quote%20for%20your%20services." target="_blank" rel="noopener">
         Get a Free Quote
       </a>
+      <p style="margin-top:18px;font-size:13px">
+        <a href="contact.html">Visit our contact page</a> |
+        <a href="portfolio.html">Explore our previous work</a>
+      </p>
     </div>
   </section>
 
@@ -759,7 +793,7 @@
             <small>PRINTING &amp; SIGNS</small>
           </div>
         </a>
-        <p>Creative design, quality printing, branding and signage solutions. Turning ideas into impressions from Kakamega to every corner of Kenya.</p>
+        <p>Creative design, quality printing, branding and signage solutions. Turning ideas into impressions from Matungu, Kakamega to every corner of Kenya.</p>
       </div>
 
       <div>
@@ -777,7 +811,7 @@
       <div>
         <h3>Contact Us</h3>
         <ul>
-          <li>Ogalo, Kakamega, Kenya</li>
+          <li>Matungu, Kakamega County, Kenya</li>
           <li><a href="tel:+254745365756">0745 365 756</a></li>
           <li><a href="tel:+254708401714">0708 401 714</a></li>
           <li><a href="https://wa.me/254745365756">WhatsApp Us</a></li>
@@ -823,6 +857,7 @@
 
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+
 <script type="module" src="js/public-content.js"></script>
 </body>
 </html>
